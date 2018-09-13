@@ -1,0 +1,11 @@
+---
+
+# Bootstrap Mac Laptops running Darwin
+
+- name: darwin_bootstrap
+  hosts: localhost
+  gather_facts: False
+
+  roles:
+  - role: ../roles/darwin_bootstrap
+

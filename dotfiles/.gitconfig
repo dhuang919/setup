@@ -1,0 +1,28 @@
+[user]
+	name = Derek Huang
+	email = derekh919@gmail.com
+[color]
+	ui = auto
+[core]
+	editor = code
+	autocrlf = false
+	safecrlf = true
+	pager = diff-so-fancy | less --tabs=2 -RFX
+[push]
+	default = upstream
+[credential]
+	helper = osxkeychain
+[alias]
+	ci = commit
+	st = status
+	br = branch
+	co = checkout
+	cm = checkout master
+	sta = stash
+	stp = stash pop
+	pru = remote update origin --prune
+	alias = config --get-regexp ^alias\\.
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+[merge]
+	tool = opendiff
+	conflictstyle = diff3

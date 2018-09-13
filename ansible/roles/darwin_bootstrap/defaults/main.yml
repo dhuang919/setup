@@ -1,0 +1,73 @@
+---
+
+homebrew_packages:
+  - bash-completion
+  - bash-git-prompt
+  - docker
+  - dockutil
+  - git-lfs
+  - wget
+  - nvm
+  - shellcheck
+
+homebrew_casks:
+  - dropbox
+  - google-chrome
+  - slack
+  - spotify
+  - visual-studio-code
+  - keybase
+  - evernote
+  - iterm2
+
+pip:
+  # Use Homebrew's pip install location
+  executable: /usr/local/bin/pip
+  packages:
+    - awscli
+    - pylint
+
+dockitems_to_remove:
+  - App Store
+  - Contacts
+  - Siri
+  - Launchpad
+  - Safari
+  - Reminders
+  - Maps
+  - Photos
+  - FaceTime
+  - Pages
+  - Numbers
+  - Keynote
+  - iTunes
+  - iBooks
+
+dockitems_to_persist:
+  - name: Messages
+    path: /Applcations/Messages.app
+    pos: 2
+  - name: Mail
+    path: /Applications/Mail.app
+    pos: 3
+  - name: Calendar
+    path: /Applications/Calendar.app
+    pos: 4
+  - name: Slack
+    path: /Applications/Slack.app
+    pos: 5
+  - name: System Preferences
+    path: "/Applications/System Preferences.app"
+    pos: 10
+  - name: Google Chrome
+    path: "/Applications/Google Chrome.app"
+    pos: 6
+  - name: iTerm
+    path: /Applications/iTerm.app
+    pos: 7
+  - name: Spotify
+    path: /Applications/Spotify.app
+    pos: 8
+  - name: Notes
+    path: /Applications/Notes.app
+    pos: 9
