@@ -137,7 +137,7 @@ function workwork {
   open /Applications/Mail.app
   open /Applications/Slack.app
   open /Applications/Calendar.app
-  open /Applications/Evernote.app
+  open /Applications/Typora.app
   open /Applications/Todoist.app
   open /Applications/Spotify.app
 }
