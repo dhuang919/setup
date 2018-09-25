@@ -119,14 +119,7 @@ function api {
     echo "Not mounted!"
   fi
 }
-function hive {
-  if [[ -d /mnt && -d /mnt/vm && -d /mnt/vm/home && -d /mnt/vm/home/derekh ]]; then
-    code "$BIO_PATH/prod/hive"
-  else
-    echo "Not mounted!"
-  fi
-}
-function rakeTasks {
+function rake_tasks {
   code ~/Desktop/rake
 }
 
@@ -138,7 +131,6 @@ function workwork {
   open /Applications/Slack.app
   open /Applications/Calendar.app
   open /Applications/Typora.app
-  open /Applications/Todoist.app
   open /Applications/Spotify.app
 }
 
