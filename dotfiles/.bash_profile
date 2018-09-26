@@ -34,11 +34,14 @@ else
   echo "No nvm.sh file found in /usr/local/opt/nvm/ or $NVM_DIR/nvm.sh"
 fi
 
+PYTHONDONTWRITEBYTECODE=1
+
 export PS1
 export PATH
 export VM_IP
 export NVM_DIR
 export GIT_PS1_SHOWDIRTYSTATE
+export PYTHONDONTWRITEBYTECODE
 
 ###################
 # Config profiles #
