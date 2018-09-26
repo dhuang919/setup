@@ -17,7 +17,7 @@ homebrew_casks:
   - spotify
   - visual-studio-code
   - keybase
-  - evernote
+  - typora
   - iterm2
 
 pip:
