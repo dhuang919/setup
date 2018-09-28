@@ -129,7 +129,7 @@ function symlink_and_source_dotfiles {
   local PWD
 
   echo "Symlinking following dotfiles to HOME:"
-  my_dotfiles=(".bash_profile" ".git-completion.bash" ".git-prompt.sh" ".gitconfig" ".bash_private")
+  my_dotfiles=(".bash_profile" ".bash_private" ".gitconfig" ".git-completion.bash" ".git-prompt.sh")
   echo "${my_dotfiles[@]}"
 
   for dotfile in "${my_dotfiles[@]}"; do
