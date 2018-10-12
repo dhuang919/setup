@@ -2,6 +2,7 @@
 IFS=$'\n\t'
 
 PATH=$PATH:~/bin
+PYTHONPATH=/usr/bin/python
 
 # shellcheck disable=SC1090
 source ~/.bash_private
@@ -40,6 +41,7 @@ export PS1
 export PATH
 export VM_IP
 export NVM_DIR
+export PYTHONPATH
 export GIT_PS1_SHOWDIRTYSTATE
 export PYTHONDONTWRITEBYTECODE
 
@@ -103,21 +105,21 @@ function bw {
 }
 function ui {
   if [[ -d /mnt && -d /mnt/vm && -d /mnt/vm/home && -d /mnt/vm/home/derekh ]]; then
-    code "$BIO_PATH/buzz_ui"
+    code "$BIO_PATH/beeswax/buzz_ui"
   else
     echo "Not mounted!"
   fi
 }
 function fes {
   if [[ -d /mnt && -d /mnt/vm && -d /mnt/vm/home && -d /mnt/vm/home/derekh ]]; then
-    code "$BIO_PATH/buzz_fes_ui"
+    code "$BIO_PATH/beeswax/buzz_fes_ui"
   else
     echo "Not mounted!"
   fi
 }
 function api {
   if [[ -d /mnt && -d /mnt/vm && -d /mnt/vm/home && -d /mnt/vm/home/derekh ]]; then
-    code "$BIO_PATH/buzz_api"
+    code "$BIO_PATH/beeswax/buzz_api"
   else
     echo "Not mounted!"
   fi
@@ -190,3 +192,6 @@ function google {
   done
   open "https://www.google.com/search?q=$search"
 }
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
