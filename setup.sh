@@ -249,10 +249,12 @@ function main {
   set_wallpaper
   copy_fonts
   symlink_and_source_dotfiles
+
   ### Install Software ###
   install_pip
   install_ansible
   install_homebrew
+
   ### Setup software ###
   run_ansible
   install_vscode_settings_sync
