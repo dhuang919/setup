@@ -1,7 +1,7 @@
 #!/bin/bash -eux
 IFS=$'\n\t'
 
-[[ ! "${PATH}" == *"$HOME/bin"* ]] && PATH=$PATH:~/bin
+[[ "${PATH}" != *"$HOME/bin"* ]] && PATH=$PATH:~/bin
 PYTHONPATH=/usr/bin/python
 
 # shellcheck disable=SC1090
