@@ -1,7 +1,7 @@
 #!/bin/bash -eux
 IFS=$'\n\t'
 
-[[ "${PATH}" != *"$HOME/bin"* ]] && PATH=$PATH:~/bin
+[[ $PATH != *$HOME/bin* ]] && PATH=$PATH:~/bin
 PYTHONPATH=/usr/bin/python
 
 # shellcheck disable=SC1090
@@ -39,7 +39,6 @@ PYTHONDONTWRITEBYTECODE=1
 
 export PS1
 export PATH
-export VM_IP
 export NVM_DIR
 export PYTHONPATH
 export GIT_PS1_SHOWDIRTYSTATE
@@ -142,18 +141,11 @@ function workwork {
 function npr {
   npm run "$1"
 }
-function ptunnel {
-  if [[ -z ${PERSONAL_VM_IP+x} ]]; then
-    echo "PERSONAL_VM_IP doesn't exist"
-  else
-    ssh derekh@$PERSONAL_VM_IP
-  fi
-}
 function tunnel {
   if [[ -z ${VM_IP+x} ]]; then
     echo "VM_IP doesn't exist"
   else
-    ssh derekh@$VM_IP
+    ssh derekh@"${VM_IP}"
   fi
 }
 function uvm {
@@ -162,18 +154,12 @@ function uvm {
   sudo umount -f /mnt/vm
 }
 function mvm {
-  local VM="${1:-}"
-
-  if [[ -z ${VM_IP+x} ]] || [[ -z ${PERSONAL_VM_IP+x} ]]; then
-    echo "VM_IP/PERSONAL_VM_IP don't exist"
+  if [[ -z ${VM_IP+x} ]]; then
+    echo "VM_IP don't exist"
   else
     echo "Mounting..."
     echo
-    if [[ "$VM" = "p" ]]; then
-      sudo sshfs -o allow_other,defer_permissions,transform_symlinks,follow_symlinks,cache=yes,kernel_cache,compression=no,reconnect derekh@$PERSONAL_VM_IP:/ /mnt/vm
-    else
-      sudo sshfs -o allow_other,defer_permissions,transform_symlinks,follow_symlinks,cache=yes,kernel_cache,compression=no,reconnect derekh@$VM_IP:/ /mnt/vm
-    fi
+    sudo sshfs -o allow_other,defer_permissions,transform_symlinks,follow_symlinks,cache=yes,kernel_cache,compression=no,reconnect derekh@"${VM_IP}":/ /mnt/vm
   fi
 }
 function rvm {
