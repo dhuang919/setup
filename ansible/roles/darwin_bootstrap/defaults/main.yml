@@ -9,6 +9,10 @@ homebrew_packages:
   - wget
   - nvm
   - shellcheck
+  - bat
+  - fd
+  - fzf
+  - tldr
 
 homebrew_casks:
   - dropbox
