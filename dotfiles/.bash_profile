@@ -1,7 +1,7 @@
 #!/bin/bash -eux
 IFS=$'\n\t'
 
-PATH=$PATH:~/bin
+[[ ! "${PATH}" == *"$HOME/bin"* ]] && PATH=$PATH:~/bin
 PYTHONPATH=/usr/bin/python
 
 # shellcheck disable=SC1090
@@ -25,10 +25,10 @@ GIT_PS1_SHOWDIRTYSTATE=1
 PS1="$purple\\u@\\h $blue\\W$green\$(__git_ps1)\\n$purple$ $reset"
 
 NVM_DIR="$HOME/.nvm"
-if [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
+if [[ -s "/usr/local/opt/nvm/nvm.sh" ]]; then
   # shellcheck disable=SC1091
   source /usr/local/opt/nvm/nvm.sh
-elif [ -s "$NVM_DIR/nvm.sh" ]; then
+elif [[ -s "$NVM_DIR/nvm.sh" ]]; then
   # shellcheck disable=SC1090
   source "$NVM_DIR/nvm.sh"
 else
@@ -56,7 +56,7 @@ function prof {
   fi
 }
 function vmprof {
-  if [[ -d /mnt && -d /mnt/vm && -d /mnt/vm/home && -d /mnt/vm/home/derekh ]]; then
+  if [[ -d /mnt/vm/home/derekh ]]; then
     if [[ "$1" == "code" ]]; then
       code /mnt/vm/home/derekh/.bash_personal
     else
@@ -74,12 +74,12 @@ function reprof {
   source ~/.bash_profile
 }
 function setup {
-  if ! [[ -d "$HOME/Desktop/keybase/osx-setup" ]]; then
-    echo "Desktop/keybase/osx-setup doesn't exist"
+  if [[ ! -d "$HOME/Desktop/dev/osx-setup" ]]; then
+    echo ".../dev/osx-setup doesn't exist"
   elif [[ "$1" == "code" ]]; then
-    code ~/Desktop/keybase/osx-setup/setup.sh
+    code ~/Desktop/dev/osx-setup/setup.sh
   else
-    nano ~/Desktop/keybase/osx-setup/setup.sh
+    nano ~/Desktop/dev/osx-setup/setup.sh
   fi
 }
 
@@ -90,42 +90,39 @@ function sand {
   cd ~/Desktop/Sandbox
 }
 function jd {
-  if [[  -d "$HOME/Desktop/keybase" && -d "$HOME/Desktop/keybase/janetandderek" ]]; then
+  if [[ -d "$HOME/Desktop/keybase/janetandderek" ]]; then
     cd ~/Desktop/keybase/janetandderek
   else
-    echo "Something doesn't exist in Desktop/keybase/janetandderek"
+    echo "Can't find .../keybase/janetandderek"
   fi
 }
 function bw {
-  if [[ -d /mnt && -d /mnt/vm && -d /mnt/vm/home && -d /mnt/vm/home/derekh ]]; then
+  if [[ -d /mnt/vm/home/derekh ]]; then
     code "$BIO_PATH"
   else
     echo "Not mounted!"
   fi
 }
 function ui {
-  if [[ -d /mnt && -d /mnt/vm && -d /mnt/vm/home && -d /mnt/vm/home/derekh ]]; then
+  if [[ -d /mnt/vm/home/derekh ]]; then
     code "$BIO_PATH/beeswax/buzz_ui"
   else
     echo "Not mounted!"
   fi
 }
 function fes {
-  if [[ -d /mnt && -d /mnt/vm && -d /mnt/vm/home && -d /mnt/vm/home/derekh ]]; then
+  if [[ -d /mnt/vm/home/derekh ]]; then
     code "$BIO_PATH/beeswax/buzz_fes_ui"
   else
     echo "Not mounted!"
   fi
 }
 function api {
-  if [[ -d /mnt && -d /mnt/vm && -d /mnt/vm/home && -d /mnt/vm/home/derekh ]]; then
+  if [[ -d /mnt/vm/home/derekh ]]; then
     code "$BIO_PATH/beeswax/buzz_api"
   else
     echo "Not mounted!"
   fi
-}
-function rake_tasks {
-  code ~/Desktop/rake
 }
 
 ########
