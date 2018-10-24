@@ -176,8 +176,6 @@ function google {
   open "https://www.google.com/search?q=$search"
 }
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-
 # Bind fzf bash history search to ctrl + r
 bind "$(bind -s | grep '^"\\C-r"' | sed 's/"/"\\C-x/' | sed 's/"$/\\C-m"/')"
 
