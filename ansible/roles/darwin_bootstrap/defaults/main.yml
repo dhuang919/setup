@@ -13,6 +13,7 @@ homebrew_packages:
   - fd
   - fzf
   - tldr
+  - thefuck
 
 homebrew_casks:
   - dropbox

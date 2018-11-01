@@ -179,3 +179,4 @@ function google {
 # Bind fzf bash history search to ctrl + r
 bind "$(bind -s | grep '^"\\C-r"' | sed 's/"/"\\C-x/' | sed 's/"$/\\C-m"/')"
 
+eval $(thefuck --alias)
