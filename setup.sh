@@ -55,7 +55,7 @@ function set_system_preferences {
   echo "General settings"
 
   echo "  -> setting Cobalt2 as default iTerm theme"
-  open "$HOME/Desktop/keybase/osx-setup/assets/Cobalt2.itermcolors"
+  open "$HOME/Desktop/dev/setup/assets/Cobalt2.itermcolors"
   sleep 1  # Wait a bit to make sure the theme is loaded
   defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
@@ -104,12 +104,12 @@ function set_wallpaper {
   RESOLUTION=$(system_profiler SPDisplaysDataType | grep Resolution)
   if [[ $RESOLUTION = *"2560 x 1600"* ]]; then
     echo "  > setting thirteen.jpg as background"
-    THIRTEEN="$HOME/Desktop/osx-setup/assets/thirteen.jpg"
+    THIRTEEN="$HOME/Desktop/dev/setup/assets/thirteen.jpg"
     sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '$THIRTEEN'"  # TODO not working - quotes around path necessary?
     killall Dock
   elif [[ $RESOLUTION = *"2880 x 1800"* ]]; then
     echo "  > setting fifteen.jpg as background"
-    FIFTEEN="$HOME/Desktop/osx-setup/assets/fifteen.jpg"
+    FIFTEEN="$HOME/Desktop/dev/setup/assets/fifteen.jpg"
     sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '$FIFTEEN'"  # TODO not working - quotes around path necessary?
     killall Dock
   else
@@ -183,7 +183,7 @@ function install_homebrew {
 
 function run_ansible {
   echo "Running ansible"
-  pushd "${HOME}/Desktop/osx-setup/ansible" &>/dev/null
+  pushd "${HOME}/Desktop/dev/setup/ansible" &>/dev/null
     ansible-playbook ./playbooks/darwin_bootstrap.yml -v
   popd
 }
