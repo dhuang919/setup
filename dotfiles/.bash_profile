@@ -73,12 +73,11 @@ function reprof {
     source ~/.bash_profile
 }
 function setup {
-    if [[ ! -d "$HOME/Desktop/dev/osx-setup" ]]; then
-        echo ".../dev/osx-setup doesn't exist"
-    elif [[ "$1" == "code" ]]; then
-        code ~/Desktop/dev/osx-setup/setup.sh
+    local readonly path="$HOME/Desktop/dev/setup"
+    if [[ ! -d "$path" ]]; then
+        echo "$path doesn't exist"
     else
-        nano ~/Desktop/dev/osx-setup/setup.sh
+        cd "$path"
     fi
 }
 
@@ -89,10 +88,11 @@ function sand {
     cd ~/Desktop/Sandbox
 }
 function jd {
-    if [[ -d "$HOME/Desktop/keybase/janetandderek" ]]; then
-        cd ~/Desktop/keybase/janetandderek
+    local readonly path="$HOME/Desktop/keybase/janetandderek"
+    if [[ -d "$path" ]]; then
+        cd "$path"
     else
-        echo "Can't find .../keybase/janetandderek"
+        echo "$path doesn't exist"
     fi
 }
 function bw {
@@ -165,15 +165,6 @@ function mvm {
 function rvm {
     uvm
     mvm
-}
-function google {
-    local search
-    # shellcheck disable=SC2145
-    echo "Googling: $@"
-    for term in "$@"; do
-        search="$search%20$term"
-    done
-    open "https://www.google.com/search?q=$search"
 }
 
 # Bind fzf bash history search to ctrl + r
