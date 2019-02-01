@@ -55,11 +55,12 @@ function prof {
     fi
 }
 function vmprof {
-    if [[ -d /mnt/vm/home/derekh ]]; then
+    local readonly vm_path=/mnt/vm/home/derek
+    if [[ -d "$vm_path" ]]; then
         if [[ "$1" == "code" ]]; then
-            code /mnt/vm/home/derekh/.bash_personal
+            code "$vm_path/.bash_personal"
         else
-            nano /mnt/vm/home/derekh/.bash_personal
+            nano "$vm_path/.bash_personal"
         fi
     else
         echo "Not mounted!"
@@ -85,10 +86,10 @@ function setup {
 # Dirs #
 ########
 function sand {
-    cd ~/Desktop/Sandbox
+    cd ~/Desktop/sandbox
 }
 function jd {
-    local readonly path="$HOME/Desktop/keybase/janetandderek"
+    local readonly path="$HOME/Desktop/dev/janetandderek"
     if [[ -d "$path" ]]; then
         cd "$path"
     else
