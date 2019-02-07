@@ -2,6 +2,7 @@
 IFS=$'\n\t'
 
 [[ $PATH != *$HOME/bin* ]] && PATH=$PATH:~/bin
+[[ $PATH != *$HOME/Library/Python/2.7/bin* ]] && PATH=$PATH:~/Library/Python/2.7/bin
 PYTHONPATH=/usr/bin/python
 
 # shellcheck disable=SC1090
