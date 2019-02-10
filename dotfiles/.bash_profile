@@ -168,6 +168,12 @@ function rvm {
     uvm
     mvm
 }
+function bp {
+    setup
+    git pull
+    reprof
+    cd -
+}
 
 # Bind fzf bash history search to ctrl + r
 bind "$(bind -s | grep '^"\\C-r"' | sed 's/"/"\\C-x/' | sed 's/"$/\\C-m"/')"
