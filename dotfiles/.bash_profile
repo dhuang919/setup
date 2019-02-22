@@ -157,11 +157,11 @@ function uvm {
 }
 function mvm {
     if [[ -z ${VM_IP+x} ]]; then
-        echo "VM_IP don't exist"
+        echo "VM_IP doesn't exist"
     else
         echo "Mounting..."
         echo
-        sudo sshfs -o allow_other,defer_permissions,transform_symlinks,follow_symlinks,cache=yes,kernel_cache,compression=no,reconnect derekh@"${VM_IP}":/ /mnt/vm
+        sudo sshfs -o transform_symlinks,follow_symlinks,cache=yes,compression=no,reconnect derekh@"${VM_IP}":/ /mnt/vm
     fi
 }
 function rvm {
