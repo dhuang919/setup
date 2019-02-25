@@ -8,7 +8,7 @@ PYTHONPATH=/usr/bin/python
 BIO_PATH="$HOME/wanderbee/beeswaxio/beeswax"
 
 # shellcheck disable=SC1090
-source ~/.bash_private
+# source ~/.bash_private
 # shellcheck disable=SC1090
 source ~/.git-completion.bash
 # shellcheck disable=SC1090
@@ -96,7 +96,7 @@ function wb {
     fi
 }
 function bw {
-    if [[ -d $BIO_PATH ]]; then
+    if [[ -d "$BIO_PATH" ]]; then
         code "$BIO_PATH"
     else
         echo "Not mounted!"
@@ -124,7 +124,7 @@ function tunnel {
     wb && vagrant ssh
 }
 function mvm {
-    wb && vagrant sshfs
+    wb && vagrant sshfs && bw
 }
 function uvm {
     wb && vagrant halt
