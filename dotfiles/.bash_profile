@@ -5,7 +5,7 @@ IFS=$'\n\t'
 [[ $PATH != *$HOME/Library/Python/2.7/bin* ]] && PATH=$PATH:~/Library/Python/2.7/bin
 PYTHONPATH=/usr/bin/python
 
-BIO_PATH=/mnt/vm/home/derekh/src/beeswaxio/beeswax
+BIO_PATH="$HOME/wanderbee/beeswaxio/beeswax"
 
 # shellcheck disable=SC1090
 source ~/.bash_private
@@ -65,60 +65,39 @@ function reprof {
     source ~/.bash_profile
 }
 function setup {
-    local readonly path="$HOME/Desktop/dev/setup"
-    if [[ ! -d "$path" ]]; then
-        echo "$path doesn't exist"
+    local readonly setup_path="$HOME/Desktop/dev/setup"
+    if [[ ! -d "$setup_path" ]]; then
+        echo "$setup_path doesn't exist"
     else
-        cd "$path"
+        cd "$setup_path"
     fi
 }
 
 ########
 # Dirs #
 ########
-function sand {
+function sbx {
     cd ~/Desktop/sandbox
 }
 function jd {
-    local readonly path="$HOME/Desktop/dev/janetandderek"
-    if [[ -d "$path" ]]; then
-        cd "$path"
+    local readonly jd_path="$HOME/Desktop/dev/janetandderek"
+    if [[ -d "$jd_path" ]]; then
+        cd "$jd_path"
     else
-        echo "$path doesn't exist"
+        echo "$jd_path doesn't exist"
     fi
 }
 function wb {
-    local readonly path="$HOME/wanderbee"
-    if [[ -d $path ]]; then
-        cd $path
+    local readonly wb_path="$HOME/wanderbee"
+    if [[ -d "$wb_path" ]]; then
+        cd "$wb_path"
     else
-        echo "$path doesn't exist"
+        echo "$wb_path doesn't exist"
     fi
 }
 function bw {
-    if [[ -d /mnt/vm/home/derekh ]]; then
+    if [[ -d $BIO_PATH ]]; then
         code "$BIO_PATH"
-    else
-        echo "Not mounted!"
-    fi
-}
-function ui {
-    if [[ -d /mnt/vm/home/derekh ]]; then
-        code "$BIO_PATH/beeswax/buzz_ui"
-    else
-        echo "Not mounted!"
-    fi
-}
-function fes {
-    if [[ -d /mnt/vm/home/derekh ]]; then
-        code "$BIO_PATH/beeswax/buzz_fes_ui"
-    else
-        echo "Not mounted!"
-    fi
-}
-function api {
-    if [[ -d /mnt/vm/home/derekh ]]; then
-        code "$BIO_PATH/beeswax/buzz_api"
     else
         echo "Not mounted!"
     fi
@@ -160,4 +139,4 @@ function bp {
 # Bind fzf bash history search to ctrl + r
 bind "$(bind -s | grep '^"\\C-r"' | sed 's/"/"\\C-x/' | sed 's/"$/\\C-m"/')"
 
-eval $(thefuck --alias 2>/dev/null)
+eval "$(thefuck --alias 2>/dev/null)"
