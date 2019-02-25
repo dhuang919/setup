@@ -55,18 +55,6 @@ function prof {
         nano ~/.bash_profile
     fi
 }
-function vmprof {
-    local readonly vm_path=/mnt/vm/home/derek
-    if [[ -d "$vm_path" ]]; then
-        if [[ "$1" == "code" ]]; then
-            code "$vm_path/.bash_personal"
-        else
-            nano "$vm_path/.bash_personal"
-        fi
-    else
-        echo "Not mounted!"
-    fi
-}
 function gitprof {
     nano ~/.gitconfig
 }
@@ -93,6 +81,14 @@ function jd {
     local readonly path="$HOME/Desktop/dev/janetandderek"
     if [[ -d "$path" ]]; then
         cd "$path"
+    else
+        echo "$path doesn't exist"
+    fi
+}
+function wander {
+    local readonly path="$HOME/wanderbee"
+    if [[ -d $path ]]; then
+        cd $path
     else
         echo "$path doesn't exist"
     fi
@@ -144,29 +140,13 @@ function npr {
     npm run "$1"
 }
 function tunnel {
-    if [[ -z ${VM_IP+x} ]]; then
-        echo "VM_IP doesn't exist"
-    else
-        ssh derekh@"${VM_IP}"
-    fi
-}
-function uvm {
-    echo "Unmounting..."
-    echo
-    sudo umount -f /mnt/vm
+    wander && vagrant ssh
 }
 function mvm {
-    if [[ -z ${VM_IP+x} ]]; then
-        echo "VM_IP doesn't exist"
-    else
-        echo "Mounting..."
-        echo
-        sudo sshfs -o transform_symlinks,follow_symlinks,cache=yes,compression=no,reconnect derekh@"${VM_IP}":/ /mnt/vm
-    fi
+    wander && vagrant sshfs
 }
-function rvm {
-    uvm
-    mvm
+function uvm {
+    wander && vagrant halt
 }
 function bp {
     setup
