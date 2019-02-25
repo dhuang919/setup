@@ -5,6 +5,8 @@ IFS=$'\n\t'
 [[ $PATH != *$HOME/Library/Python/2.7/bin* ]] && PATH=$PATH:~/Library/Python/2.7/bin
 PYTHONPATH=/usr/bin/python
 
+BIO_PATH=/mnt/vm/home/derekh/src/beeswaxio/beeswax
+
 # shellcheck disable=SC1090
 source ~/.bash_private
 # shellcheck disable=SC1090
@@ -85,7 +87,7 @@ function jd {
         echo "$path doesn't exist"
     fi
 }
-function wander {
+function wb {
     local readonly path="$HOME/wanderbee"
     if [[ -d $path ]]; then
         cd $path
