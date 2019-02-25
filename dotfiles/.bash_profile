@@ -142,13 +142,13 @@ function npr {
     npm run "$1"
 }
 function tunnel {
-    wander && vagrant ssh
+    wb && vagrant ssh
 }
 function mvm {
-    wander && vagrant sshfs
+    wb && vagrant sshfs
 }
 function uvm {
-    wander && vagrant halt
+    wb && vagrant halt
 }
 function bp {
     setup
