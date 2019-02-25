@@ -5,7 +5,7 @@ IFS=$'\n\t'
 [[ $PATH != *$HOME/Library/Python/2.7/bin* ]] && PATH=$PATH:~/Library/Python/2.7/bin
 PYTHONPATH=/usr/bin/python
 
-BIO_PATH="$HOME/wanderbee/beeswaxio/beeswax"
+BIO_PATH="$HOME/wanderbee/beeswaxio"
 
 # shellcheck disable=SC1090
 # source ~/.bash_private
