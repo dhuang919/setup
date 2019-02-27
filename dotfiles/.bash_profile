@@ -112,6 +112,7 @@ function workwork {
     open /Applications/Calendar.app
     open /Applications/Typora.app
     open /Applications/Spotify.app
+    wb
 }
 
 ############
@@ -121,13 +122,13 @@ function npr {
     npm run "$1"
 }
 function tunnel {
-    vagrant ssh
+    wb && vagrant ssh
 }
 function mvm {
-    vagrant sshfs && bw
+    wb && vagrant sshfs && bw
 }
 function uvm {
-    vagrant halt
+    wb && vagrant sshfs --unmount
 }
 function bp {
     setup
