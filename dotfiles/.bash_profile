@@ -54,11 +54,11 @@ function prof {
     if [[ "$1" == "code" ]]; then
         code ~/.bash_profile
     else
-        nano ~/.bash_profile
+        vim ~/.bash_profile
     fi
 }
 function gitprof {
-    nano ~/.gitconfig
+    vim ~/.gitconfig
 }
 function reprof {
     # shellcheck disable=SC1090
