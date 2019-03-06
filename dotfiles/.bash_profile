@@ -39,11 +39,13 @@ else
 fi
 
 PYTHONDONTWRITEBYTECODE=1
+HISTTIMEFORMAT="%d/%m/%y %T "
 
 export PS1
 export PATH
 export NVM_DIR
 export PYTHONPATH
+export HISTTIMEFORMAT
 export GIT_PS1_SHOWDIRTYSTATE
 export PYTHONDONTWRITEBYTECODE
 
@@ -123,12 +125,6 @@ function npr {
 }
 function tunnel {
     wb && vagrant ssh
-}
-function mvm {
-    wb && vagrant sshfs && bw
-}
-function uvm {
-    wb && vagrant sshfs --unmount
 }
 function bp {
     setup
