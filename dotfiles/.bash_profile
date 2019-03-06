@@ -8,8 +8,6 @@ PYTHONPATH=/usr/bin/python
 BIO_PATH="$HOME/wanderbee/beeswaxio"
 
 # shellcheck disable=SC1090
-# source ~/.bash_private
-# shellcheck disable=SC1090
 source ~/.git-completion.bash
 # shellcheck disable=SC1090
 source ~/.git-prompt.sh
