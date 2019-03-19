@@ -4,7 +4,7 @@
 [color]
 	ui = auto
 [core]
-	editor = code
+	editor = vim
 	autocrlf = false
 	safecrlf = true
 	pager = diff-so-fancy | less --tabs=2 -RFX

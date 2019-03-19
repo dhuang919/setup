@@ -124,6 +124,11 @@ function npr {
 function tunnel {
     wb && vagrant ssh
 }
+function uvm {
+    wb
+    osascript -e 'quit app "Visual Studio Code"'
+    vagrant sshfs --unmount
+}
 function bp {
     setup
     git pull
