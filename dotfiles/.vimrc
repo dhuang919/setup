@@ -47,13 +47,23 @@ colorscheme OceanicNext
 
 set clipboard=unnamedplus
 
-set ts=4
+set tabstop=4
 set expandtab
 set shiftwidth=2
 set smartindent
 set cursorline
 set wildmenu
 set showmatch
+
+if has("gui_running")
+  if has("gui_macvim")
+    set guifont=Operator\ Mono:h12
+  elseif has("gui_gtk2")
+    set guifopnt=Source\ Code\ Pro\ 12
+  endif
+endif
+
+match SpellRare /\s\+$/
 
 " Spell Checking
 set spelllang=en
@@ -96,6 +106,11 @@ set ruler
 " Linting and Completion
 " ============================================
 " Syntastic Checkers
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 let g:syntastic_yaml_checkers = ['yamllint']
 let g:syntastic_enable_yaml_checker = 1
 let g:syntastic_cpp_cpplint_exec = 'cpplint'
@@ -103,3 +118,8 @@ let g:syntastic_cpp_checkers = ['cpplint']
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_php_checkers = ['phpcs']
 let g:syntastic_javascript_checkers = ['eslint']
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
