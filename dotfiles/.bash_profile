@@ -64,6 +64,10 @@ function reprof {
     # shellcheck disable=SC1090
     source ~/.bash_profile
 }
+function vimprof {
+    vim ~/.vimrc
+}
+
 function setup {
     local readonly setup_path="$HOME/Desktop/dev/setup"
     if [[ ! -d "$setup_path" ]]; then
