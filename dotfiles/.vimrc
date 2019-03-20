@@ -38,14 +38,14 @@ endif
 let mapleader=","
 set number "line numbers
 
-set mouse=a "scrolling
+set mouse=v "scrolling
 set background=dark
 
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
 colorscheme OceanicNext
 
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 set tabstop=4
 set expandtab
@@ -54,6 +54,8 @@ set smartindent
 set cursorline
 set wildmenu
 set showmatch
+set splitbelow
+set splitright
 
 if has("gui_running")
   if has("gui_macvim")
@@ -66,8 +68,9 @@ endif
 match SpellRare /\s\+$/
 
 " Spell Checking
-set spelllang=en
-set spell
+" set spelllang=en
+" set spell
+set nospell
 
 " ============================================
 " Silver Searcher 
