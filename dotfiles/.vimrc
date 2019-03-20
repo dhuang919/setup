@@ -26,6 +26,14 @@ call plug#end()
 " ============================================
 " Editor Options
 " ============================================
+if !exists('g:os')
+  if has('win64') || has ('win32') || has('win16')
+    let g:os = 'Windows'
+  else
+    let g:os = substitute(system('uname'), '\n', '', '')
+  endif
+endif
+
 " Already set by vim-plug but kept here for clarity
 syntax on
 syntax enable
@@ -35,18 +43,22 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-let mapleader=","
-set number "line numbers
-
-set mouse=v "scrolling
-set background=dark
+if has('clipboard')
+  if has('unnamedplus')
+    set clipboard=unnamedplus
+  else
+    set clipboard=unnamed
+  endif
+endif
 
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
 colorscheme OceanicNext
 
-set clipboard=unnamed
-
+let mapleader=","
+set number
+set mouse=v "scrolling
+set background=dark
 set tabstop=4
 set expandtab
 set shiftwidth=2
@@ -56,42 +68,34 @@ set wildmenu
 set showmatch
 set splitbelow
 set splitright
-
-if has("gui_running")
-  if has("gui_macvim")
-    set guifont=Operator\ Mono:h12
-  elseif has("gui_gtk2")
-    set guifont=Source\ Code\ Pro\ 12
-  endif
-endif
-
-match SpellRare /\s\+$/
-
-" Spell Checking
-" set spelllang=en
-" set spell
 set nospell
 
+match SpellRare /\s\+$/ " highlight trailing whitespace
+
 " ============================================
-" Silver Searcher 
+" Silver Searcher
 " ============================================
 " Map grep to ag
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ 
+  set grepprg=ag\
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
-   let g:ctrlp_use_caching = 0
+  let g:ctrlp_use_caching = 0
 endif
 
 " ============================================
 " FZF
 " ============================================
 " add fzf
-set rtp+=/usr/local/opt/fzf
+if g:os == 'Darwin'
+  set rtp+=/usr/local/opt/fzf
+elseif g:os == 'Linux'
+  set rtp+=~/.fzf
+endif
 " some key bindings for fzf
 " search current buffer
 map <C-F> :BLines<CR>
@@ -125,4 +129,3 @@ let g:syntastic_javascript_checkers = ['eslint']
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
