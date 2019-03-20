@@ -12,7 +12,7 @@ IFS=$'\n\t'
 
 function set_host {
   echo "Setting host names"
-  local HOSTNAME='derekhuang'
+  local HOSTNAME='derek'
   sudo scutil --set ComputerName $HOSTNAME
   sudo scutil --set HostName $HOSTNAME
   sudo scutil --set LocalHostName $HOSTNAME
@@ -54,11 +54,6 @@ function set_system_preferences {
 
   echo "General settings"
 
-  echo "  -> setting Cobalt2 as default iTerm theme"
-  open "$HOME/Desktop/dev/setup/assets/Cobalt2.itermcolors"
-  sleep 1  # Wait a bit to make sure the theme is loaded
-  defaults write com.googlecode.iterm2 PromptOnQuit -bool false
-
   echo "  -> disable check spelling as you type"
   defaults write -g CheckSpellingWhileTyping -bool false
   defaults write -g WebContinuousSpellCheckingEnabled -bool false
@@ -95,48 +90,22 @@ function set_system_preferences {
 EOD
 }
 
-function set_wallpaper {
-  local THIRTEEN
-  local FIFTEEN
-  local RESOLUTION
-
-  echo "Setting wallpaper"
-  RESOLUTION=$(system_profiler SPDisplaysDataType | grep Resolution)
-  if [[ $RESOLUTION = *"2560 x 1600"* ]]; then
-    echo "  > setting thirteen.jpg as background"
-    THIRTEEN="$HOME/Desktop/dev/setup/assets/thirteen.jpg"
-    sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '$THIRTEEN'"  # TODO not working - quotes around path necessary?
-    killall Dock
-  elif [[ $RESOLUTION = *"2880 x 1800"* ]]; then
-    echo "  > setting fifteen.jpg as background"
-    FIFTEEN="$HOME/Desktop/dev/setup/assets/fifteen.jpg"
-    sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '$FIFTEEN'"  # TODO not working - quotes around path necessary?
-    killall Dock
-  else
-    echo "Resolution not found - not setting wallpaper"
-  fi
-}
-
 function copy_fonts {
-  echo "Copying files"
+  echo "Copying Fonts"
   sudo cp fonts/*.otf ~/Library/Fonts
 }
 
 function symlink_and_source_dotfiles {
-  # local my_dotfiles="$(ls -d .[^.*]* | grep -v '.git\b\|.gitignore\b')"
-  local my_dotfiles
+  local my_dotfiles="$(ls -d .[^.*]* | grep -v '.DS_Store\b')"
   local dotfile
-  local PWD
 
   echo "Symlinking following dotfiles to HOME:"
-  my_dotfiles=(".bash_profile" ".bash_private" ".gitconfig" ".git-completion.bash" ".git-prompt.sh")
   echo "${my_dotfiles[@]}"
 
   for dotfile in "${my_dotfiles[@]}"; do
     if ! [[ -L "${HOME}/${dotfile}" ]]; then
-      PWD=$(pwd)
-      echo "  > symlinking ${PWD}/dotfiles/${dotfile} to ${HOME}/${dotfile}"
-      ln -fns "${PWD}/dotfiles/${dotfile}" "${HOME}/${dotfile}"
+      echo "  > symlinking $(pwd)/dotfiles/${dotfile} to ${HOME}/${dotfile}"
+      ln -fns "$(pwd)/dotfiles/${dotfile}" "${HOME}/${dotfile}"
     else
       echo "  > symlink for ${dotfile} already exists"
     fi
@@ -152,7 +121,9 @@ function symlink_and_source_dotfiles {
 function install_pip {
   if test ! "$(command -v pip)"; then
     echo "Installing pip"
-    sudo easy_install pip
+    curl 'https://bootstrap.pypa.io/get-pip.py' -o get-pip.py
+    python get-pip.py
+    rm get-pip.py
   else
     echo "pip already installed"
   fi
@@ -183,18 +154,9 @@ function install_homebrew {
 
 function run_ansible {
   echo "Running ansible"
-  pushd "${HOME}/Desktop/dev/setup/ansible" &>/dev/null
-    ansible-playbook ./playbooks/darwin_bootstrap.yml -v
-  popd
-}
-
-function install_vscode_settings_sync {
-  if ! test "$(command -v code)"; then
-    echo "No code command exists"
-  else
-    echo "Installing VSCode Settings Sync"
-    code --install-extension Shan.code-settings-sync
-  fi
+  cd "${HOME}/Desktop/dev/setup/ansible"
+  ansible-playbook ./playbooks/darwin_bootstrap.yml -v
+  cd -
 }
 
 function link_nvm {
