@@ -57,7 +57,7 @@ colorscheme OceanicNext
 
 let mapleader=","
 set number
-set mouse=v "scrolling
+set mouse=v
 set background=dark
 set tabstop=4
 set expandtab
@@ -69,8 +69,26 @@ set showmatch
 set splitbelow
 set splitright
 set nospell
+set incsearch
+set hlsearch
+
+" easy navigation between splits with the alt key
+" mapped for the option key on mac
+nmap ˙ <C-w><Left>
+nmap ¬ <C-w><Right>
+nmap ˚ <C-w><Up>
+nmap ∆ <C-w><Down>
+nmap √ <C-w>v
+nmap ß <C-w>s
 
 match SpellRare /\s\+$/ " highlight trailing whitespace
+
+" ============================================
+" Tagbar
+" ============================================
+set tags+=.git/tags;~
+" map ctrl-t to tagbar toggle
+map <C-t> :TagbarOpen j<CR>
 
 " ============================================
 " Silver Searcher
@@ -81,11 +99,20 @@ if executable('ag')
   set grepprg=ag\
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_user_command = 'ag %s -l -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
+" ============================================
+" Auto-Formatting
+" ============================================
+map <C-K> :Autoformat<cr>
+imap <C-K> <c-o>:Autoformat<cr>
+
+" Shortcut to remove trailing whitespace in a file
+:nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
 " ============================================
 " FZF
@@ -120,8 +147,6 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_yaml_checkers = ['yamllint']
 let g:syntastic_enable_yaml_checker = 1
-let g:syntastic_cpp_cpplint_exec = 'cpplint'
-let g:syntastic_cpp_checkers = ['cpplint']
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_php_checkers = ['phpcs']
 let g:syntastic_javascript_checkers = ['eslint']
@@ -129,3 +154,10 @@ let g:syntastic_javascript_checkers = ['eslint']
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+" Autoclose YCM Preview Window
+let g:ycm_autoclose_preview_window_after_completion=1
+
+" autocomplete settings
+set completeopt+=menuone
+

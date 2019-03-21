@@ -47,9 +47,7 @@ export HISTTIMEFORMAT
 export GIT_PS1_SHOWDIRTYSTATE
 export PYTHONDONTWRITEBYTECODE
 
-###################
-# Config profiles #
-###################
+# Config profiles
 function prof {
     if [[ "$1" == "code" ]]; then
         code ~/.bash_profile
@@ -77,9 +75,7 @@ function setup {
     fi
 }
 
-########
-# Dirs #
-########
+# Dirs
 function sbx {
     cd ~/Desktop/sandbox
 }
@@ -107,9 +103,7 @@ function bw {
     fi
 }
 
-########
-# Apps #
-########
+# Apps
 function workwork {
     open /Applications/Mail.app
     open /Applications/Slack.app
@@ -119,9 +113,7 @@ function workwork {
     wb
 }
 
-############
-# Commands #
-############
+# Commands
 function npr {
     npm run "$1"
 }
