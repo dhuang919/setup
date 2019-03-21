@@ -14,7 +14,6 @@ endif
 " around on machines that already use the bundle directory.
 call plug#begin('~/.vim/bundle')
 
-Plug 'mhartington/oceanic-next'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-syntastic/syntastic'
 Plug 'airblade/vim-gitgutter'
@@ -51,16 +50,13 @@ if has('clipboard')
   endif
 endif
 
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
-colorscheme OceanicNext
+colorscheme desert
 
-let mapleader=","
+let mapleader=";"
 set laststatus=2
 set statusline+=%f
 set number
 set mouse=v
-set background=dark
 set tabstop=4
 set expandtab
 set shiftwidth=4
