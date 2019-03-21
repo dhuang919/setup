@@ -56,6 +56,8 @@ let g:oceanic_next_terminal_italic = 1
 colorscheme OceanicNext
 
 let mapleader=","
+set laststatus=2
+set statusline+=%f
 set number
 set mouse=v
 set background=dark
