@@ -67,7 +67,7 @@ function vimprof {
 }
 
 function setup {
-    local readonly setup_path="$HOME/Desktop/dev/setup"
+    local setup_path="$HOME/Desktop/dev/setup"
     if [[ ! -d "$setup_path" ]]; then
         echo "$setup_path doesn't exist"
     else
@@ -80,7 +80,7 @@ function sbx {
     cd ~/Desktop/sandbox
 }
 function jd {
-    local readonly jd_path="$HOME/Desktop/dev/janetandderek"
+    local jd_path="$HOME/Desktop/dev/janetandderek"
     if [[ -d "$jd_path" ]]; then
         cd "$jd_path"
     else
@@ -88,7 +88,7 @@ function jd {
     fi
 }
 function wb {
-    local readonly wb_path="$HOME/wanderbee"
+    local wb_path="$HOME/wanderbee"
     if [[ -d "$wb_path" ]]; then
         cd "$wb_path"
     else
