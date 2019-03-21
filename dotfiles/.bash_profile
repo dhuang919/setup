@@ -65,7 +65,6 @@ function reprof {
 function vimprof {
     vim ~/.vimrc
 }
-
 function setup {
     local setup_path="$HOME/Desktop/dev/setup"
     if [[ ! -d "$setup_path" ]]; then
@@ -73,6 +72,12 @@ function setup {
     else
         cd "$setup_path"
     fi
+}
+function bp {
+    setup
+    git pull
+    reprof
+    cd -
 }
 
 # Dirs
@@ -124,12 +129,6 @@ function uvm {
     wb
     osascript -e 'quit app "Visual Studio Code"'
     vagrant sshfs --unmount
-}
-function bp {
-    setup
-    git pull
-    reprof
-    cd -
 }
 
 # Bind fzf bash history search to ctrl + r
