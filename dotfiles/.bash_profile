@@ -3,7 +3,7 @@ IFS=$'\n\t'
 
 [[ $PATH != *$HOME/bin* ]] && PATH=$PATH:~/bin
 [[ $PATH != *$HOME/Library/Python/2.7/bin* ]] && PATH=$PATH:~/Library/Python/2.7/bin
-PYTHONPATH=/usr/bin/python
+export PYTHONPATH=/usr/bin/python
 
 BIO_PATH="$HOME/wanderbee/beeswaxio"
 
@@ -19,14 +19,15 @@ purple="\\[\\033[0;35m\\]"
 reset="\\[\\033[0m\\]"
 
 # Change command prompt
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOW_UPSTREAM="auto"
 # '\u' adds the name of the current user to the prompt
 # '\$(__git_ps1)' adds git-related stuff
 # '\W' adds the name of the current directory
-PS1="$purple\\u@\\h $blue\\W$green\$(__git_ps1)\\n$purple$ $reset"
+export PS1="$purple\\u@\\h $blue\\W$green\$(__git_ps1)\\n$purple$ $reset"
 
-NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$HOME/.nvm"
 if [[ -s "/usr/local/opt/nvm/nvm.sh" ]]; then
     # shellcheck disable=SC1091
     source /usr/local/opt/nvm/nvm.sh
@@ -37,17 +38,8 @@ else
     echo "No nvm.sh file found in /usr/local/opt/nvm/ or $NVM_DIR/nvm.sh"
 fi
 
-PYTHONDONTWRITEBYTECODE=1
-HISTTIMEFORMAT="%d/%m/%y %T "
-
-export PS1
-export PATH
-export NVM_DIR
-export PYTHONPATH
-export HISTTIMEFORMAT
-export GIT_PS1_SHOWDIRTYSTATE
-export GIT_PS1_SHOWSTASHSTATE
-export PYTHONDONTWRITEBYTECODE
+export PYTHONDONTWRITEBYTECODE=1
+export HISTTIMEFORMAT="%d/%m/%y %T "
 
 # Config profiles
 function prof {
