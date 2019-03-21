@@ -69,6 +69,7 @@ set splitright
 set nospell
 set incsearch
 set hlsearch
+set updatetime=1000
 
 " easy navigation between splits with the alt key
 " mapped for the option key on mac
