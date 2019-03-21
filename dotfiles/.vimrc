@@ -63,7 +63,7 @@ set mouse=v
 set background=dark
 set tabstop=4
 set expandtab
-set shiftwidth=2
+set shiftwidth=4
 set smartindent
 set cursorline
 set wildmenu
