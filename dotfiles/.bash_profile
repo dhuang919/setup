@@ -20,6 +20,7 @@ reset="\\[\\033[0m\\]"
 
 # Change command prompt
 GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
 # '\u' adds the name of the current user to the prompt
 # '\$(__git_ps1)' adds git-related stuff
 # '\W' adds the name of the current directory
@@ -45,6 +46,7 @@ export NVM_DIR
 export PYTHONPATH
 export HISTTIMEFORMAT
 export GIT_PS1_SHOWDIRTYSTATE
+export GIT_PS1_SHOWSTASHSTATE
 export PYTHONDONTWRITEBYTECODE
 
 # Config profiles
