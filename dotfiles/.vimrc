@@ -18,6 +18,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'vim-syntastic/syntastic'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'morhetz/gruvbox'
 
 " Initialize plugin system
 call plug#end()
@@ -27,9 +29,9 @@ call plug#end()
 " ============================================
 if !exists('g:os')
   if has('win64') || has ('win32') || has('win16')
-    let g:os = 'Windows'
+    let g:os='Windows'
   else
-    let g:os = substitute(system('uname'), '\n', '', '')
+    let g:os=substitute(system('uname'), '\n', '', '')
   endif
 endif
 
@@ -50,13 +52,21 @@ if has('clipboard')
   endif
 endif
 
-colorscheme desert
+let g:gruvbox_italic=1
+
+colorscheme gruvbox
 
 let mapleader=";"
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_italicize_comments=1
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+
+set background=dark
 set laststatus=2
 set statusline+=%f
 set number
-set mouse=v
+set mouse=a
 set tabstop=4
 set expandtab
 set shiftwidth=4
@@ -96,13 +106,13 @@ map <C-t> :TagbarOpen j<CR>
 " Map grep to ag
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\
+  set grepprg=ag\ --color
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+  let g:ctrlp_use_caching=0
 endif
 
 " ============================================
@@ -140,16 +150,16 @@ set ruler
 " Linting and Completion
 " ============================================
 " Syntastic Checkers
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
 
-let g:syntastic_yaml_checkers = ['yamllint']
-let g:syntastic_enable_yaml_checker = 1
-let g:syntastic_python_checkers = ['pylint']
-let g:syntastic_php_checkers = ['phpcs']
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_yaml_checkers=['yamllint']
+let g:syntastic_enable_yaml_checker=1
+let g:syntastic_python_checkers=['pylint']
+let g:syntastic_php_checkers=['phpcs']
+let g:syntastic_javascript_checkers=['eslint']
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
