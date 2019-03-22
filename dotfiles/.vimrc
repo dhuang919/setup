@@ -70,6 +70,7 @@ set nospell
 set incsearch
 set hlsearch
 set updatetime=1000
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " easy navigation between splits with the alt key
 " mapped for the option key on mac
