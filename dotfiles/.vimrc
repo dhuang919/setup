@@ -12,6 +12,7 @@ endif
 " Start installing plugins. We use .vim/bundle for backwards compatibility
 call plug#begin('~/.vim/bundle')
 
+Plug 'Chiel92/vim-autoformat'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-syntastic/syntastic'
 Plug 'airblade/vim-gitgutter'
