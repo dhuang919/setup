@@ -10,8 +10,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 " Start installing plugins. We use .vim/bundle for backwards compatibility
-" because we used to use pathogen and its just easier to not move things
-" around on machines that already use the bundle directory.
 call plug#begin('~/.vim/bundle')
 
 Plug 'jiangmiao/auto-pairs'
@@ -106,7 +104,7 @@ map <C-t> :TagbarOpen j<CR>
 " Map grep to ag
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --color
+  set grepprg=ag\ --color\ 
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
