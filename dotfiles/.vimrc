@@ -105,7 +105,7 @@ map <C-t> :TagbarOpen j<CR>
 " Map grep to ag
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --color\ 
+  set grepprg=ag\ --color\ -Q\ 
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
