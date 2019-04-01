@@ -121,9 +121,10 @@ function symlink_and_source_dotfiles {
 function install_pip {
   if test ! "$(command -v pip)"; then
     echo "Installing pip"
+    cd /tmp || exit
     curl 'https://bootstrap.pypa.io/get-pip.py' -o get-pip.py
     python get-pip.py
-    rm get-pip.py
+    cd -
   else
     echo "pip already installed"
   fi
