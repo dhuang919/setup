@@ -61,6 +61,7 @@ let g:gruvbox_italicize_comments=1
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 
+set pastetoggle=<F3>
 set background=dark
 set laststatus=2
 set statusline+=%f
