@@ -10,8 +10,6 @@
 	pager = diff-so-fancy | less --tabs=2 -RFX
 [push]
 	default = upstream
-[credential]
-	helper = osxkeychain
 [alias]
 	ci = commit
 	st = status
@@ -20,7 +18,7 @@
 	cm = checkout master
 	sta = stash
 	stp = stash pop
-	pru = remote update origin --prune
+	prul = !git pull && git remote update origin --prune
 	alias = config --get-regexp ^alias\\.
 	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
 [merge]
