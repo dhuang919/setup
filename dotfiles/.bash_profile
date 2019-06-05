@@ -3,6 +3,7 @@ IFS=$'\n\t'
 
 [[ $PATH != *$HOME/bin* ]] && PATH=$PATH:~/bin
 [[ $PATH != *$HOME/Library/Python/2.7/bin* ]] && PATH=$PATH:~/Library/Python/2.7/bin
+[[ $PATH != */usr/local/opt/gnu-getopt/bin* ]] && PATH=$PATH:/usr/local/opt/gnu-getopt/bin
 export PYTHONPATH=/usr/bin/python
 
 BIO_PATH="$HOME/wanderbee/beeswaxio"
