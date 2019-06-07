@@ -67,24 +67,10 @@ function setup {
         cd "$setup_path"
     fi
 }
-function bp {
-    setup
-    git pull
-    reprof
-    cd -
-}
 
 # Dirs
 function sbx {
     cd ~/Desktop/sandbox
-}
-function jd {
-    local jd_path="$HOME/Desktop/dev/janetandderek"
-    if [[ -d "$jd_path" ]]; then
-        cd "$jd_path"
-    else
-        echo "$jd_path doesn't exist"
-    fi
 }
 function wb {
     local wb_path="$HOME/wanderbee"
@@ -92,13 +78,6 @@ function wb {
         cd "$wb_path"
     else
         echo "$wb_path doesn't exist"
-    fi
-}
-function bw {
-    if [[ -d "$BIO_PATH" ]]; then
-        code "$BIO_PATH"
-    else
-        echo "Not mounted!"
     fi
 }
 
@@ -119,10 +98,8 @@ function npr {
 function tunnel {
     wb && vagrant ssh
 }
-function uvm {
-    wb
-    osascript -e 'quit app "Visual Studio Code"'
-    vagrant sshfs --unmount
+function up {
+    wb && vagrant up && code
 }
 
 # Bind fzf bash history search to ctrl + r
