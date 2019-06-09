@@ -9,7 +9,6 @@ homebrew_packages:
   - wget
   - nvm
   - shellcheck
-  - bat
   - fd
   - fzf
   - tldr
