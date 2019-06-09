@@ -13,7 +13,6 @@ homebrew_packages:
   - fd
   - fzf
   - tldr
-  - thefuck
   - the_silver_searcher
   - gnu-getopt
 
