@@ -41,6 +41,8 @@ fi
 export PYTHONDONTWRITEBYTECODE=1
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
+alias ll="ls -laF"
+
 # Config profiles
 function prof {
     if [[ "$1" == "code" ]]; then
