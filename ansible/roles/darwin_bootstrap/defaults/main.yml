@@ -5,25 +5,26 @@ homebrew_packages:
   - bash-git-prompt
   - docker
   - dockutil
-  - git-lfs
-  - wget
-  - nvm
-  - shellcheck
   - fd
   - fzf
-  - tldr
-  - the_silver_searcher
+  - git-lfs
   - gnu-getopt
+  - jq
+  - nvm
+  - shellcheck
+  - the_silver_searcher
+  - tldr
+  - wget
 
 homebrew_casks:
   - dropbox
   - google-chrome
+  - iterm2
+  - keybase
   - slack
   - spotify
-  - visual-studio-code
-  - keybase
   - typora
-  - iterm2
+  - visual-studio-code
 
 pip:
   # Use Homebrew's pip install location
@@ -35,18 +36,18 @@ pip:
 dockitems_to_remove:
   - App Store
   - Contacts
-  - Siri
-  - Launchpad
-  - Safari
-  - Reminders
-  - Maps
-  - Photos
   - FaceTime
-  - Pages
-  - Numbers
-  - Keynote
-  - iTunes
   - iBooks
+  - iTunes
+  - Keynote
+  - Launchpad
+  - Maps
+  - Numbers
+  - Pages
+  - Photos
+  - Reminders
+  - Safari
+  - Siri
 
 dockitems_to_persist:
   - name: Messages
