@@ -62,7 +62,7 @@ function vimprof {
     vim ~/.vimrc
 }
 function setup {
-    local setup_path="$HOME/Desktop/dev/setup"
+    local setup_path="$HOME/dev/setup"
     if [[ ! -d "$setup_path" ]]; then
         echo "$setup_path doesn't exist"
     else
@@ -72,7 +72,7 @@ function setup {
 
 # Dirs
 function sbx {
-    cd ~/Desktop/sandbox
+    cd ~/sandbox
 }
 function wb {
     local wb_path="$HOME/wanderbee"
