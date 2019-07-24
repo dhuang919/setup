@@ -153,7 +153,7 @@ function install_homebrew {
 
 function run_ansible {
     echo "Running ansible"
-    cd "${HOME}/Desktop/dev/setup/ansible"
+    cd "${HOME}/dev/setup/ansible"
     ansible-playbook ./playbooks/darwin_bootstrap.yml -v
     cd -
 }
