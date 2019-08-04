@@ -6,8 +6,6 @@ IFS=$'\n\t'
 [[ $PATH != */usr/local/opt/gnu-getopt/bin* ]] && PATH=$PATH:/usr/local/opt/gnu-getopt/bin
 export PYTHONPATH=/usr/bin/python
 
-BIO_PATH="$HOME/wanderbee/beeswaxio"
-
 # shellcheck disable=SC1090
 source ~/.git-completion.bash
 # shellcheck disable=SC1090
@@ -82,6 +80,14 @@ function wb {
         echo "$wb_path doesn't exist"
     fi
 }
+function bb {
+    local bb_path="$HOME/bionicbee"
+    if [[ -d "$bb_path" ]]; then
+        cd "$bb_path"
+    else
+        echo "$bb_path doesn't exist"
+    fi
+}
 
 # Apps
 function workwork {
@@ -90,7 +96,7 @@ function workwork {
     open /Applications/Calendar.app
     open /Applications/Typora.app
     open /Applications/Spotify.app
-    wb
+    bb
 }
 
 # Commands
@@ -98,10 +104,10 @@ function npr {
     npm run "$1"
 }
 function tunnel {
-    wb && vagrant ssh
+    bb && vagrant ssh
 }
 function up {
-    wb && vagrant up && code
+    bb && vagrant up && code
 }
 
 # Bind fzf bash history search to ctrl + r
