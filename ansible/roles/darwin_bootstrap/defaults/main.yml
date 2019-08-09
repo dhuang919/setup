@@ -1,8 +1,6 @@
 ---
 
 homebrew_packages:
-  - bash-completion
-  - bash-git-prompt
   - docker
   - dockutil
   - fd
@@ -20,14 +18,12 @@ homebrew_casks:
   - dropbox
   - google-chrome
   - iterm2
-  - keybase
   - slack
   - spotify
   - typora
   - visual-studio-code
 
 pip:
-  # Use Homebrew's pip install location
   executable: /usr/local/bin/pip
   packages:
     - awscli

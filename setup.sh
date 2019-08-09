@@ -2,23 +2,19 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# Things to do before running:
-# 1. xcode-select --install
-# 2. Fill in /ansible/roles/darwin_bootstrap/vars/main.yml
+# fill in /ansible/roles/darwin_bootstrap/vars/main.yml before running
 
-##############################################
-# System Preferences
-##############################################
+### set system preferences
 
-function set_host {
-    echo "Setting host names"
+set_host() {
+    echo "Setting host names..."
     local HOSTNAME='derek'
     sudo scutil --set ComputerName $HOSTNAME
     sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $HOSTNAME
 }
 
-function set_system_preferences {
-    echo "Setting system preferences"
+set_system_preferences() {
+    echo "Setting system preferences..."
 
     echo "  -> toggling autohide"
     defaults write com.apple.dock autohide -bool true
@@ -88,37 +84,39 @@ function set_system_preferences {
 EOD
 }
 
-function copy_fonts {
-    echo "Copying Fonts"
+copy_fonts() {
+    echo "Copying fonts..."
     sudo cp fonts/*.otf ~/Library/Fonts
 }
 
-function symlink_and_source_dotfiles {
-    local my_dotfiles="$(ls -d .[^.*]* | grep -v '.DS_Store\b')"
-    local dotfile
+symlink_and_source_dotfiles() {
+    cd ./dotfiles
+    # shellcheck disable=SC2010,SC2207
+    local my_dotfiles=($(ls -d .[a-zA-Z]* | grep -v .gitignore))
 
     echo "Symlinking following dotfiles to HOME:"
     echo "${my_dotfiles[@]}"
+    echo
 
     for dotfile in "${my_dotfiles[@]}"; do
         if ! [[ -L "${HOME}/${dotfile}" ]]; then
-            echo "  > symlinking $(pwd)/dotfiles/${dotfile} to ${HOME}/${dotfile}"
+            echo "  > symlinking $(pwd)/${dotfile} to ${HOME}/${dotfile}"
             ln -fns "$(pwd)/dotfiles/${dotfile}" "${HOME}/${dotfile}"
         else
             echo "  > symlink for ${dotfile} already exists"
         fi
     done
+
     # shellcheck disable=SC1090
-    source "$HOME/.bash_profile"
+    source "$HOME/.zshrc"
+    cd -
 }
 
-##############################################
-# Install Software
-##############################################
+### install stuff
 
-function install_pip {
-    if test ! "$(command -v pip)"; then
-        echo "Installing pip"
+install_pip() {
+    if test ! "$(command -v pip &>/dev/null)"; then
+        echo "Installing pip..."
         cd /tmp || exit
         curl 'https://bootstrap.pypa.io/get-pip.py' -o get-pip.py
         python get-pip.py
@@ -128,53 +126,66 @@ function install_pip {
     fi
 }
 
-function install_ansible {
-    if test ! "$(command -v ansible)"; then
-        echo "Installing ansible"
+install_ansible() {
+    if test ! "$(command -v ansible &>/dev/null)"; then
+        echo "Installing ansible..."
         sudo pip install ansible
     else
         echo "Ansible already installed"
     fi
 }
 
-function install_homebrew {
-    if test ! "$(command -v brew)"; then
-        echo "Installing Homebrew"
-        # Pipe the implicit newline (return key) that echo generates for Homebrew installation prompt
-        echo | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+install_homebrew() {
+    if test ! "$(command -v brew &>/dev/null)"; then
+        echo "Installing homebrew..."
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" 2>&1
     else
         echo "Homebrew already installed"
     fi
 }
 
-##############################################
-# Setup Software
-##############################################
+install_ohmyzsh() {
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+}
 
-function run_ansible {
-    echo "Running ansible"
+install_xcode() {
+    if ! [[ -d /Library/Developer/CommandLineTools/Library/ ]]; then
+        echo "Installing Xcode..."
+        xcode-select --install
+        while [ ! -d /Library/Developer/CommandLineTools/Library/ ]; do
+            sleep 2
+        done
+    else
+        echo "Xcode already installed"
+    fi
+}
+
+### install more stuff
+
+run_ansible() {
+    echo "Running ansible..."
     cd "${HOME}/dev/setup/ansible"
     ansible-playbook ./playbooks/darwin_bootstrap.yml -v
     cd -
 }
 
-function install_node_8 {
-    if ! test "$(command -v nvm)"; then
+install_node_8() {
+    if ! test "$(command -v nvm &>/dev/null)"; then
         echo "No nvm command exists"
     elif ! [[ "$(command -v node)" = *"v8.10.0"* ]]; then
-        echo "Installing node 8.4.0"
+        echo "Installing node 8.10.0..."
         nvm install v8.10.0
         nvm alias default 8.10.0
     else
-        echo "Node 8.4.0 already installed"
+        echo "Node 8.10.0 already installed"
     fi
 }
 
-function setup_npm {
-    if ! test "$(command -v npm)"; then
+setup_npm() {
+    if ! test "$(command -v npm &>/dev/null)"; then
         echo "No npm command exists"
     else
-        echo "Setting npm configs, upgrading npm, and installing diff-so-fancy"
+        echo "Setting npm configs, upgrading npm, and installing diff-so-fancy..."
         npm set progress=false
         npm set package-lock=false
         npm i -g npm diff-so-fancy
@@ -183,19 +194,21 @@ function setup_npm {
 
 # TODO: uninstall unwanted OS X apps
 
-function main {
-    ### System Preferences ###
-    set_host
-    set_system_preferences
-    copy_fonts
-    symlink_and_source_dotfiles
-
-    ### Install Software ###
+main() {
+    # install stuff
+    install_xcode
     install_pip
     install_ansible
     install_homebrew
+    install_ohmyzsh
 
-    ### Setup software ###
+    # set system preferences
+    symlink_and_source_dotfiles
+    set_host
+    set_system_preferences
+    copy_fonts
+
+    # install more stuff
     run_ansible
     install_node_8
     setup_npm
