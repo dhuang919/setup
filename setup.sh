@@ -188,7 +188,6 @@ setup_npm() {
         echo "Setting npm configs, upgrading npm, and installing diff-so-fancy..."
         npm set progress=false
         npm set package-lock=false
-        npm i -g npm diff-so-fancy
     fi
 }
 

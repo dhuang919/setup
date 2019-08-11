@@ -13,6 +13,7 @@ homebrew_packages:
   - the_silver_searcher
   - tldr
   - wget
+  - diff-so-fancy
 
 homebrew_casks:
   - dropbox
