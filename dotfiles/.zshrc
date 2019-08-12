@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/derekhuang/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export FZF_BAZE="/usr/local/bin/fzf"
 export PYTHONPATH=/usr/bin/python
 export NVM_DIR="$HOME/.nvm"
