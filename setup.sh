@@ -148,18 +148,6 @@ install_ohmyzsh() {
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
-install_xcode() {
-    if ! [[ -d /Library/Developer/CommandLineTools/Library/ ]]; then
-        echo "Installing Xcode..."
-        xcode-select --install
-        while [ ! -d /Library/Developer/CommandLineTools/Library/ ]; do
-            sleep 2
-        done
-    else
-        echo "Xcode already installed"
-    fi
-}
-
 ### install more stuff
 
 run_ansible() {
@@ -195,7 +183,6 @@ setup_npm() {
 
 main() {
     # install stuff
-    install_xcode
     install_homebrew
     install_pip
     install_ansible
