@@ -119,7 +119,7 @@ install_pip() {
         echo "Installing pip..."
         cd /tmp || exit
         curl 'https://bootstrap.pypa.io/get-pip.py' -o get-pip.py
-        python get-pip.py
+        sudo python get-pip.py
         cd -
     else
         echo "pip already installed"
@@ -196,9 +196,9 @@ setup_npm() {
 main() {
     # install stuff
     install_xcode
+    install_homebrew
     install_pip
     install_ansible
-    install_homebrew
     install_ohmyzsh
 
     # set system preferences
