@@ -4,15 +4,6 @@ IFS=$'\n\t'
 
 # fill in /ansible/roles/darwin_bootstrap/vars/main.yml before running
 
-### set system preferences
-
-set_host() {
-    echo "Setting host names..."
-    local HOSTNAME='derek'
-    sudo scutil --set ComputerName $HOSTNAME
-    sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $HOSTNAME
-}
-
 set_system_preferences() {
     echo "Setting system preferences..."
 
@@ -107,6 +98,10 @@ symlink_and_source_dotfiles() {
         fi
     done
 
+    mkdir -p ~/.zsh  # TODO only create if none exists
+    cp git-completion.bash ~/.zsh/git-completion.bash
+    cp git-completion.zsh ~/.zsh/_git
+
     # shellcheck disable=SC1090
     source "$HOME/.zshrc"
     cd -
@@ -190,7 +185,6 @@ main() {
 
     # set system preferences
     symlink_and_source_dotfiles
-    set_host
     set_system_preferences
     copy_fonts
 
