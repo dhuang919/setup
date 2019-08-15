@@ -1,5 +1,4 @@
 ---
-# tasks file for darwin_bootstrap
 
 - name: Install Homebrew casks
   homebrew_cask:
