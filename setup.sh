@@ -80,32 +80,32 @@ copy_fonts() {
     sudo cp fonts/*.otf ~/Library/Fonts
 }
 
-symlink_and_source_dotfiles() {
-    cd ./dotfiles
-    # shellcheck disable=SC2010,SC2207
-    local my_dotfiles=($(ls -d .[a-zA-Z]* | grep -v .gitignore))
+# symlink_and_source_dotfiles() {
+#     cd ./dotfiles
+#     # shellcheck disable=SC2010,SC2207
+#     local my_dotfiles=($(ls -d .[a-zA-Z]* | grep -v .gitignore))
 
-    echo "Symlinking following dotfiles to HOME:"
-    echo "${my_dotfiles[@]}"
-    echo
+#     echo "Symlinking following dotfiles to HOME:"
+#     echo "${my_dotfiles[@]}"
+#     echo
 
-    for dotfile in "${my_dotfiles[@]}"; do
-        if ! [[ -L "${HOME}/${dotfile}" ]]; then
-            echo "  > symlinking $(pwd)/${dotfile} to ${HOME}/${dotfile}"
-            ln -fns "$(pwd)/dotfiles/${dotfile}" "${HOME}/${dotfile}"
-        else
-            echo "  > symlink for ${dotfile} already exists"
-        fi
-    done
+#     for dotfile in "${my_dotfiles[@]}"; do
+#         if ! [[ -L "${HOME}/${dotfile}" ]]; then
+#             echo "  > symlinking $(pwd)/${dotfile} to ${HOME}/${dotfile}"
+#             ln -fns "$(pwd)/dotfiles/${dotfile}" "${HOME}/${dotfile}"
+#         else
+#             echo "  > symlink for ${dotfile} already exists"
+#         fi
+#     done
 
-    mkdir -p ~/.zsh  # TODO only create if none exists
-    cp git-completion.bash ~/.zsh/git-completion.bash
-    cp git-completion.zsh ~/.zsh/_git
+#     mkdir -p ~/.zsh  # TODO only create if none exists
+#     cp git-completion.bash ~/.zsh/git-completion.bash
+#     cp git-completion.zsh ~/.zsh/_git
 
-    # shellcheck disable=SC1090
-    source "$HOME/.zshrc"
-    cd -
-}
+#     # shellcheck disable=SC1090
+#     source "$HOME/.zshrc"
+#     cd -
+# }
 
 ### install stuff
 
@@ -184,7 +184,7 @@ main() {
     install_ohmyzsh
 
     # set system preferences
-    symlink_and_source_dotfiles
+    # symlink_and_source_dotfiles
     set_system_preferences
     copy_fonts
 
