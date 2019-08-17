@@ -12,7 +12,7 @@
     ~/.zshrc:
       src: "{{filesdir}}/zshrc"
 
-  git_completion_base:  # TODO create .zsh
+  git_completion_base:
     ~/.zsh/git-completion.bash:
       src: "{{filesdir}}/git-completion.bash"
     ~/.zsh/_git:

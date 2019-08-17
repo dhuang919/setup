@@ -10,4 +10,4 @@
 - name: symlink dotfiles
   file: path={{item.key}} state=link src={{item.value.src}}
   with_dict: dotfiles_base
-  notify: symlinking dotfiles finished
+  notify: symlinking dotfiles complete

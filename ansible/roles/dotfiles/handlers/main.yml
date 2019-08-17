@@ -1,9 +1,4 @@
 ---
 
-- name: install vim-plug plugins
-  command: vim -c PlugInstall -c qa
-  listen: symlinking dotfiles finished
-
-- name: source ~/.zsh
-  command: source ~/.zsh
-  listen: symlinking dotfiles finished
+- name: symlinking dotfiles complete
+  command: vim -c PlugInstall -c qa && source ~/.zsh
