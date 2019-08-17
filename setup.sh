@@ -2,8 +2,6 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# fill in /ansible/roles/darwin_bootstrap/vars/main.yml before running
-
 set_system_preferences() {
     echo "Setting system preferences..."
 
