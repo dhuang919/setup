@@ -5,5 +5,5 @@
   listen: symlinking dotfiles finished
 
 - name: source ~/.zsh
-  command source ~/.zsh
+  command: source ~/.zsh
   listen: symlinking dotfiles finished
