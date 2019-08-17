@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export FZF_BAZE="/usr/local/bin/fzf"
+export FZF_BASE="/usr/local/bin/fzf"
 export PYTHONPATH=/usr/bin/python
 export NVM_DIR="$HOME/.nvm"
 export PYTHONDONTWRITEBYTECODE=1
