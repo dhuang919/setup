@@ -1,8 +1,8 @@
 ---
 
-- name: darwin_bootstrap
-  hosts: localhost
-  gather_facts: False
-
+- name: macOS setup
+  gather_facts: False  # TODO determine if needed
+  become: true
   roles:
-  - role: ../roles/darwin_bootstrap
+    - darwin_bootstrap
+    - dotfiles
