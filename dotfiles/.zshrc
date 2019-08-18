@@ -8,6 +8,7 @@ export PYTHONPATH=/usr/bin/python
 export NVM_DIR="$HOME/.nvm"
 export PYTHONDONTWRITEBYTECODE=1
 export HISTTIMEFORMAT="%d/%m/%y %T "
+export EDITOR='vim'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
