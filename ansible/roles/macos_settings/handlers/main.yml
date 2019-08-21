@@ -1,0 +1,17 @@
+---
+
+- name: restart appstore
+  command: killall "App Store"
+  ignore_errors: true
+
+- name: restart menu bar
+  command: killall SystemUIServer
+  ignore_errors: true
+
+- name: restart dock
+  command: killall Dock
+  ignore_errors: true
+
+- name: restart finder
+  command: killall Finder
+  ignore_errors: true
