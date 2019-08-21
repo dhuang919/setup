@@ -50,7 +50,8 @@
   become: true
 
 - name: Is Homebrew binary already in place?
-  stat: path="{{ homebrew_brew_bin_path }}/brew"
+  stat:
+    path: "{{ homebrew_brew_bin_path }}/brew"
   register: homebrew_binary
 
 - name: Symlink brew to homebrew_brew_bin_path

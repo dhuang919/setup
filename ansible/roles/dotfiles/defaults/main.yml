@@ -1,19 +1,19 @@
 ---
 
-  filesdir: "{{role_path}}/files"
+filesdir: "{{ role_path }}/files"
 
-  dotfiles_base:
-    ~/.gitconfig:
-      src: "{{filesdir}}/gitconfig"
-    ~/.p10k.zsh:
-      src: "{{filesdir}}/p10k.zsh"
-    ~/.vimrc:
-      src: "{{filesdir}}/vimrc"
-    ~/.zshrc:
-      src: "{{filesdir}}/zshrc"
+dotfiles_base:
+  ~/.gitconfig:
+    src: "{{ filesdir }}/gitconfig"
+  ~/.p10k.zsh:
+    src: "{{ filesdir }}/p10k.zsh"
+  ~/.vimrc:
+    src: "{{ filesdir }}/vimrc"
+  ~/.zshrc:
+    src: "{{ filesdir }}/zshrc"
 
-  git_completion_base:
-    ~/.zsh/git-completion.bash:
-      src: "{{filesdir}}/git-completion.bash"
-    ~/.zsh/_git:
-      src: "{{filesdir}}/git-completion.zsh"
+git_completion_base:
+  ~/.zsh/git-completion.bash:
+    src: "{{ filesdir }}/git-completion.bash"
+  ~/.zsh/_git:
+    src: "{{ filesdir }}/git-completion.zsh"

@@ -1,13 +1,21 @@
 ---
 
-- name: create ~/.zsh dir
-  file: path=~/.zsh state=directory
+- name: Create ~/.zsh dir
+  file:
+    path: ~/.zsh
+    state: directory
 
-- name: setup zsh git-completion
-  file: path={{item.key}} state=link src={{item.value.src}}
+- name: Setup git-completion
+  file:
+    path: "{{ item.key }}"
+    state: link
+    src: "{{ item.value.src }}"
   with_dict: git_completion_base
 
-- name: symlink dotfiles
-  file: path={{item.key}} state=link src={{item.value.src}}
+- name: Symlink dotfiles
+  file:
+    path: "{{ item.key }}"
+    state: link
+    src: "{{ item.value.src }}"
   with_dict: dotfiles_base
-  notify: symlinking dotfiles complete
+  notify: dotfiles complete

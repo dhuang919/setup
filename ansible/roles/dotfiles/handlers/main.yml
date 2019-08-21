@@ -1,4 +1,4 @@
 ---
 
-- name: symlinking dotfiles complete
+- name: dotfiles complete
   command: vim -c PlugInstall -c qa && source ~/.zsh
