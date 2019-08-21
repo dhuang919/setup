@@ -1,0 +1,81 @@
+---
+
+- name: Determine Homebrew ownership variables
+  set_fact:
+    homebrew_user: "{{ homebrew_user | default(ansible_user_id) }}"
+    homebrew_group: "{{ homebrew_group | default(ansible_user_gid) }}"
+
+- name: Does Homebrew parent directory have correct permissions?
+  file:
+    path: "{{ homebrew_prefix }}"
+    owner: root
+    state: directory
+  become: true
+  when: ansible_distribution_version is version('10.13', '>=')
+
+- name: Does Homebrew directory exist?
+  file:
+    path: "{{ homebrew_install_path }}"
+    owner: "{{ homebrew_user }}"
+    group: "{{ homebrew_group }}"
+    state: directory
+    mode: 0775
+  become: true
+
+- name: Is Homebrew is installed?
+  git:
+    repo: "{{ homebrew_repo }}"
+    version: master
+    dest: "{{ homebrew_install_path }}"
+    update: no
+    depth: 1
+  become: true
+  become_user: "{{ homebrew_user }}"
+
+- name: Do homebrew_brew_bin_path dirs have proper permissions and ownership?
+  file:
+    path: "{{ homebrew_brew_bin_path }}"
+    state: directory
+    owner: "{{ homebrew_user }}"
+    group: "{{ homebrew_group }}"
+    mode: 0775
+  become: true
+
+- name: Do homebrew_install_path subdirs have proper ownership?
+  file:
+    path: "{{ homebrew_install_path }}"
+    state: directory
+    owner: "{{ homebrew_user }}"
+    group: "{{ homebrew_group }}"
+  become: true
+
+- name: Is Homebrew binary already in place?
+  stat: path="{{ homebrew_brew_bin_path }}/brew"
+  register: homebrew_binary
+
+- name: Symlink brew to homebrew_brew_bin_path
+  file:
+    src: "{{ homebrew_install_path }}/bin/brew"
+    dest: "{{ homebrew_brew_bin_path }}/brew"
+    state: link
+  when: not homebrew_binary.stat.exists
+  become: true
+
+- name: Install Homebrew casks
+  homebrew_cask:
+    name: "{{ item }}"
+    state: present
+    update_homebrew: yes
+  with_items: "{{ homebrew_casks }}"
+  ignore_errors: true
+
+- name: Install Homebrew packages
+  homebrew:
+    name: "{{ item }}"
+    state: present
+    update_homebrew: yes
+  with_items: "{{ homebrew_packages }}"
+  ignore_errors: true
+
+  become: "{{ (homebrew_user != ansible_user_id) | bool }}"
+  become_user: "{{ homebrew_user }}"

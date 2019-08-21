@@ -1,0 +1,30 @@
+---
+
+homebrew_repo: https://github.com/Homebrew/brew
+
+homebrew_prefix: /usr/local
+homebrew_install_path: "{{ homebrew_prefix }}/Homebrew"
+homebrew_brew_bin_path: "{{ homebrew_prefix }}/bin"
+
+homebrew_casks:
+  - dropbox
+  - google-chrome
+  - iterm2
+  - slack
+  - spotify
+  - typora
+  - visual-studio-code
+
+homebrew_packages:
+  - docker
+  - dockutil
+  - fd
+  - fzf
+  - gnu-getopt
+  - jq
+  - nvm
+  - shellcheck
+  - the_silver_searcher
+  - tldr
+  - wget
+  - diff-so-fancy
