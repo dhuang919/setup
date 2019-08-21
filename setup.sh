@@ -1,6 +1,43 @@
 #!/bin/bash
 set -euo pipefail
-IFS=$'\n\t'
+
+install_xcode() {
+    if ! [[ -d /Library/Developer/CommandLineTools/Library/ ]]; then
+        echo "Installing Xcode..."
+        xcode-select --install
+        while [ ! -d /Library/Developer/CommandLineTools/Library/ ]; do
+            sleep 2
+        done
+    else
+        echo "Xcode already installed"
+    fi
+}
+
+install_pip() {
+    if test ! "$(command -v pip &>/dev/null)"; then
+        echo "Installing pip..."
+        sudo easy_install pip
+    else
+        echo "pip already installed"
+    fi
+}
+
+install_ansible() {
+    if test ! "$(command -v ansible &>/dev/null)"; then
+        echo "Installing ansible..."
+        sudo pip install ansible
+    else
+        echo "Ansible already installed"
+    fi
+}
+
+run_ansible() {
+    echo "Running ansible..."
+    cd "${HOME}/dev/setup/ansible"
+    ansible-playbook ./playbooks/darwin_bootstrap.yml -v
+    cd -
+}
+
 
 set_system_preferences() {
     echo "Setting system preferences..."
@@ -78,78 +115,6 @@ copy_fonts() {
     sudo cp fonts/*.otf ~/Library/Fonts
 }
 
-# symlink_and_source_dotfiles() {
-#     cd ./dotfiles
-#     # shellcheck disable=SC2010,SC2207
-#     local my_dotfiles=($(ls -d .[a-zA-Z]* | grep -v .gitignore))
-
-#     echo "Symlinking following dotfiles to HOME:"
-#     echo "${my_dotfiles[@]}"
-#     echo
-
-#     for dotfile in "${my_dotfiles[@]}"; do
-#         if ! [[ -L "${HOME}/${dotfile}" ]]; then
-#             echo "  > symlinking $(pwd)/${dotfile} to ${HOME}/${dotfile}"
-#             ln -fns "$(pwd)/dotfiles/${dotfile}" "${HOME}/${dotfile}"
-#         else
-#             echo "  > symlink for ${dotfile} already exists"
-#         fi
-#     done
-
-#     mkdir -p ~/.zsh  # TODO only create if none exists
-#     cp git-completion.bash ~/.zsh/git-completion.bash
-#     cp git-completion.zsh ~/.zsh/_git
-
-#     # shellcheck disable=SC1090
-#     source "$HOME/.zshrc"
-#     cd -
-# }
-
-### install stuff
-
-install_pip() {
-    if test ! "$(command -v pip &>/dev/null)"; then
-        echo "Installing pip..."
-        cd /tmp || exit
-        curl 'https://bootstrap.pypa.io/get-pip.py' -o get-pip.py
-        sudo python get-pip.py
-        cd -
-    else
-        echo "pip already installed"
-    fi
-}
-
-install_ansible() {
-    if test ! "$(command -v ansible &>/dev/null)"; then
-        echo "Installing ansible..."
-        sudo pip install ansible
-    else
-        echo "Ansible already installed"
-    fi
-}
-
-install_homebrew() {
-    if test ! "$(command -v brew &>/dev/null)"; then
-        echo "Installing homebrew..."
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" 2>&1
-    else
-        echo "Homebrew already installed"
-    fi
-}
-
-install_ohmyzsh() {
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-}
-
-### install more stuff
-
-run_ansible() {
-    echo "Running ansible..."
-    cd "${HOME}/dev/setup/ansible"
-    ansible-playbook ./playbooks/darwin_bootstrap.yml -v
-    cd -
-}
-
 install_node_8() {
     if ! test "$(command -v nvm &>/dev/null)"; then
         echo "No nvm command exists"
@@ -172,24 +137,11 @@ setup_npm() {
     fi
 }
 
-# TODO: uninstall unwanted OS X apps
-
 main() {
-    # install stuff
-    install_homebrew
+    install_xcode
     install_pip
     install_ansible
-    install_ohmyzsh
-
-    # set system preferences
-    # symlink_and_source_dotfiles
-    set_system_preferences
-    copy_fonts
-
-    # install more stuff
     run_ansible
-    install_node_8
-    setup_npm
 }
 
 main
