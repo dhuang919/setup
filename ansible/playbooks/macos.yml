@@ -1,8 +1,9 @@
 ---
-
-- name: macOS setup
-  gather_facts: False  # TODO determine if needed
-  become: true
+- hosts: localhost
+  name: MacOS Setup
   roles:
-    - darwin_bootstrap
+    - macos_settings
+    - command_line_tools
+    - homebrew
+    - pip
     - dotfiles
