@@ -65,16 +65,13 @@
   homebrew_cask:
     name: "{{ item }}"
     state: present
-    update_homebrew: yes
   with_items: "{{ homebrew_casks }}"
   ignore_errors: true
 
 - name: Install Homebrew packages
   homebrew:
-    name: "{{ item }}"
+    name: "{{ homebrew_packages }}"
     state: present
-    update_homebrew: yes
-  with_items: "{{ homebrew_packages }}"
   ignore_errors: true
 
   become: "{{ (homebrew_user != ansible_user_id) | bool }}"
