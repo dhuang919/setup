@@ -1,41 +1,59 @@
 #!/bin/bash
-set -euo pipefail
+set -o pipefail
 
-install_xcode() {
-    if ! [[ -d /Library/Developer/CommandLineTools/Library/ ]]; then
-        echo "Installing Xcode..."
-        xcode-select --install
-        while [ ! -d /Library/Developer/CommandLineTools/Library/ ]; do
-            sleep 2
-        done
+SETUP_DIR="$HOME/dev/setup"
+
+install_clt() {
+    xcode-select -p &> /dev/null
+    if [[ $? -ne 0 ]]; then
+        echo "Installing Command Line Tools..."
+        touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+        PROD=$(
+            softwareupdate -l |
+            grep -B 1 -E 'Command Line Tools' |
+            awk -F'*' '/^ +\*/ {print $2}' |
+            sed 's/^ *//' |
+            grep -iE '[0-9|.]' |
+            sort |
+            tail -n1
+        )
+        softwareupdate -i "$PROD" -v
     else
-        echo "Xcode already installed"
+        echo "Command Line Tools already installed"
     fi
+    echo
+}
+
+clone_repo() {
+    git clone https://github.com/dhuang919/setup.git "$SETUP_DIR"
 }
 
 install_pip() {
-    if test ! "$(command -v pip &>/dev/null)"; then
+    command -v pip &>/dev/null
+    if [[ $? -ne 0 ]]; then
         echo "Installing pip..."
         sudo easy_install pip
     else
         echo "pip already installed"
     fi
+    echo
 }
 
 install_ansible() {
-    if test ! "$(command -v ansible &>/dev/null)"; then
+    command -v ansible &>/dev/null
+    if [[ $? -ne 0 ]]; then
         echo "Installing ansible..."
         sudo pip install ansible
     else
         echo "Ansible already installed"
     fi
+    echo
 }
 
-run_ansible() {
-    echo "Running ansible..."
-    cd "${HOME}/dev/setup/ansible"
-    ansible-playbook ./playbooks/darwin_bootstrap.yml -v
-    cd -
+ansible_playbook() {
+    echo "Running ansible-playbook..."
+    cd "$SETUP_DIR/ansible"
+    ansible-playbook ./playbooks/macos.yml
 }
 
 
@@ -110,38 +128,39 @@ set_system_preferences() {
 EOD
 }
 
-copy_fonts() {
-    echo "Copying fonts..."
-    sudo cp fonts/*.otf ~/Library/Fonts
-}
+# copy_fonts() {
+#     echo "Copying fonts..."
+#     sudo cp fonts/*.otf ~/Library/Fonts
+# }
 
-install_node_8() {
-    if ! test "$(command -v nvm &>/dev/null)"; then
-        echo "No nvm command exists"
-    elif ! [[ "$(command -v node)" = *"v8.10.0"* ]]; then
-        echo "Installing node 8.10.0..."
-        nvm install v8.10.0
-        nvm alias default 8.10.0
-    else
-        echo "Node 8.10.0 already installed"
-    fi
-}
+# install_node_8() {
+#     if ! test "$(command -v nvm &>/dev/null)"; then
+#         echo "No nvm command exists"
+#     elif ! [[ "$(command -v node)" = *"v8.10.0"* ]]; then
+#         echo "Installing node 8.10.0..."
+#         nvm install v8.10.0
+#         nvm alias default 8.10.0
+#     else
+#         echo "Node 8.10.0 already installed"
+#     fi
+# }
 
-setup_npm() {
-    if ! test "$(command -v npm &>/dev/null)"; then
-        echo "No npm command exists"
-    else
-        echo "Setting npm configs, upgrading npm, and installing diff-so-fancy..."
-        npm set progress=false
-        npm set package-lock=false
-    fi
-}
+# setup_npm() {
+#     if ! test "$(command -v npm &>/dev/null)"; then
+#         echo "No npm command exists"
+#     else
+#         echo "Setting npm configs, upgrading npm, and installing diff-so-fancy..."
+#         npm set progress=false
+#         npm set package-lock=false
+#     fi
+# }
 
 main() {
-    install_xcode
+    install_clt
+    clone_repo
     install_pip
     install_ansible
-    run_ansible
+    ansible_playbook
 }
 
 main
