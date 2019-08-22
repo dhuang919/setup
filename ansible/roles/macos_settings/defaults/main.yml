@@ -1,2 +1,46 @@
 ---
-# defaults file for macos_settings
+
+dockitems_to_remove:
+  - App Store
+  - Contacts
+  - FaceTime
+  - iBooks
+  - iTunes
+  - Keynote
+  - Launchpad
+  - Maps
+  - Numbers
+  - Pages
+  - Photos
+  - Reminders
+  - Safari
+  - Siri
+
+dockitems_to_persist:
+  Messages:
+    path: /Applcations/Messages.app
+    pos: 2
+  Mail:
+    path: /Applications/Mail.app
+    pos: 3
+  Calendar:
+    path: /Applications/Calendar.app
+    pos: 4
+  Slack:
+    path: /Applications/Slack.app
+    pos: 5
+  System Preferences:
+    path: "/Applications/System Preferences.app"
+    pos: 10
+  Google Chrome:
+    path: "/Applications/Google Chrome.app"
+    pos: 6
+  iTerm:
+    path: /Applications/iTerm.app
+    pos: 7
+  Spotify:
+    path: /Applications/Spotify.app
+    pos: 8
+  Notes:
+    path: /Applications/Notes.app
+    pos: 9

@@ -1,2 +1,16 @@
 ---
-# tasks file for macos_settings
+
+- name: Remove apps from Dock
+  shell: dockutil --remove "{{ item }}"
+  ignore_errors: true
+  with_items: "{{ dockitems_to_remove }}"
+
+- name: Add apps to Dock
+  shell: dockutil --find "{{ item.key }}" || dockutil --add "{{ item.value.path }}"
+  ignore_errors: true
+  with_dict: "{{ dockitems_to_persist }}"
+
+- name: Rearrange Dock
+  shell: dockutil --move "{{ item.key }}" --position "{{ item.value.pos }}"
+  ignore_errors: true
+  with_dict: "{{ dockitems_to_persist }}"
