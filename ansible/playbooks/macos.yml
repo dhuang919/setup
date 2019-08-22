@@ -3,7 +3,6 @@
   name: MacOS Setup
   roles:
     - macos_settings
-    - command_line_tools
     - homebrew
     - pip
     - dotfiles
