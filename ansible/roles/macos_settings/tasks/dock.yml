@@ -1,0 +1,25 @@
+---
+
+- name: Dock - settings
+  osx_defaults:
+    domain: com.apple.dock
+    key: "{{ item.key }}"
+    type: "{{ item.value.type }}"
+    value: "{{ item.value.value }}"
+    state: present
+  with_dict: "{{ dock_settings }}"
+
+- name: Dock - remove apps
+  shell: dockutil --remove "{{ item }}"
+  ignore_errors: true
+  with_items: "{{ dockitems_to_remove }}"
+
+- name: Dock - add apps
+  shell: dockutil --find "{{ item.key }}" || dockutil --add "{{ item.value.path }}"
+  ignore_errors: true
+  with_dict: "{{ dockitems_to_persist }}"
+
+- name: Dock - rearrange apps
+  shell: dockutil --move "{{ item.key }}" --position "{{ item.value.pos }}"
+  ignore_errors: true
+  with_dict: "{{ dockitems_to_persist }}"
