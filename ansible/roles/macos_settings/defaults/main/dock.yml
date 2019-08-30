@@ -1,6 +1,6 @@
 ---
 
-dockitems_to_remove:
+dock_items_to_remove:
   - App Store
   - Contacts
   - FaceTime
@@ -16,7 +16,7 @@ dockitems_to_remove:
   - Safari
   - Siri
 
-dockitems_to_persist:
+dock_items_to_persist:
   Messages:
     path: /Applcations/Messages.app
     pos: 2
