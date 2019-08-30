@@ -73,3 +73,11 @@ dock_settings:
     desc: prevent rearranging of 'spaces' based on use
     type: bool
     value: false
+  magnification:
+    desc: turn off magnification
+    type: bool
+    value: false
+  AppleActionOnDoubleClick:
+    desc: title bar double click action
+    type: string
+    value: Minimize
