@@ -46,8 +46,7 @@
 - name: Clone powerlevel10k
   git:
     repo: https://github.com/romkatv/powerlevel10k.git
-    dest: ~/.oh-my-zsh/custom
-    depth: 1
+    dest: ~/.oh-my-zsh/custom/themes/powerlevel10k
 
 - name: Symlink dotfiles
   file:
