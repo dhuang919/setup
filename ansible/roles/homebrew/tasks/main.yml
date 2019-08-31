@@ -64,6 +64,15 @@
   when: not homebrew_binary.stat.exists
   become: true
 
+- name: Ensure all homebrew directories are in place
+  file:
+    path: "{{ homebrew_prefix }}/{{ item }}"
+    state: directory
+    owner: "{{ homebrew_user }}"
+    group: "{{ homebrew_group }}"
+  become: true
+  with_items: "{{ homebrew_directories }}"
+
 - name: Install Homebrew casks
   homebrew_cask:
     name: "{{ item }}"
