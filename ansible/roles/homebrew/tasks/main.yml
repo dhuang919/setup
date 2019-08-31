@@ -67,6 +67,7 @@
     name: "{{ item }}"
     state: present
   with_items: "{{ homebrew_casks }}"
+  become: true
   ignore_errors: true
 
 - name: Install Homebrew packages
