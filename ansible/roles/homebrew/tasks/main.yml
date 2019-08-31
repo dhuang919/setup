@@ -48,6 +48,7 @@
     state: directory
     owner: "{{ homebrew_user }}"
     group: "{{ homebrew_group }}"
+    recurse: yes
   become: true
 
 - name: Is Homebrew binary already in place?
