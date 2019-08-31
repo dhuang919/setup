@@ -4,17 +4,14 @@ dock_items_to_remove:
   - App Store
   - Contacts
   - FaceTime
-  - iBooks
   - iTunes
-  - Keynote
   - Launchpad
   - Maps
-  - Numbers
-  - Pages
   - Photos
   - Reminders
   - Safari
   - Siri
+  - News
 
 dock_items_to_persist:
   Messages:
