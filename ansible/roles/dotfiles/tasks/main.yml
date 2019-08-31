@@ -21,7 +21,7 @@
 - name: Clone Powerline fonts
   git:
     repo: https://github.com/powerline/fonts.git
-    dest: /tmp
+    dest: /tmp/fonts
     depth: 1
   become: true
 
