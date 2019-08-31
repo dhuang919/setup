@@ -49,4 +49,6 @@
     state: link
     src: "{{ item.value.src }}"
   with_dict: "{{ dotfiles_base }}"
-  notify: dotfiles complete
+  notify:
+    - install vim plugins
+    - source .zsh

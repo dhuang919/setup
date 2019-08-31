@@ -1,4 +1,7 @@
 ---
 
-- name: dotfiles complete
-  command: vim -c PlugInstall -c qa && source ~/.zsh
+- name: install vim plugins
+  shell: vim -c PlugInstall -c qa
+
+- name: source .zsh
+  shell: source ~/.zsh
