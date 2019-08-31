@@ -1,16 +1,5 @@
 ---
 
-- name: General - use dark menu bar and dock
-  osx_defaults:
-    domain: NSGlobalDomain
-    key: AppleInterfaceStyle
-    type: string
-    value: Dark
-    state: present
-  notify:
-    - restart menu bar
-    - restart dock
-
 - name: General - scroll bar click behavior
   osx_defaults:
     domain: NSGlobalDomain
