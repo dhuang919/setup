@@ -16,7 +16,7 @@
     path: "{{ item.key }}"
     state: link
     src: "{{ item.value.src }}"
-  with_dict: git_completion_base
+  with_dict: "{{ git_completion_base }}"
 
 - name: Clone Powerline fonts
   git:
@@ -48,5 +48,5 @@
     path: "{{ item.key }}"
     state: link
     src: "{{ item.value.src }}"
-  with_dict: dotfiles_base
+  with_dict: "{{ dotfiles_base }}"
   notify: dotfiles complete
