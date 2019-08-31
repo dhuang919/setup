@@ -111,83 +111,83 @@ alias htop="sudo htop"
 [[ $PATH != */usr/local/opt/gnu-getopt/bin* ]] && PATH=$PATH:/usr/local/opt/gnu-getopt/bin
 
 if [[ -s "/usr/local/opt/nvm/nvm.sh" ]]; then
-    # shellcheck disable=SC1091
-    source /usr/local/opt/nvm/nvm.sh
+  # shellcheck disable=SC1091
+  source /usr/local/opt/nvm/nvm.sh
 elif [[ -s "$NVM_DIR/nvm.sh" ]]; then
-    # shellcheck disable=SC1090
-    source "$NVM_DIR/nvm.sh"
+  # shellcheck disable=SC1090
+  source "$NVM_DIR/nvm.sh"
 else
-    echo "No nvm.sh file found in /usr/local/opt/nvm/ or $NVM_DIR/nvm.sh"
+  echo "No nvm.sh file found in /usr/local/opt/nvm/ or $NVM_DIR/nvm.sh"
 fi
 
 # Config profiles
 function prof {
-    vim ~/.zshrc
+  vim ~/.zshrc
 }
 function gitprof {
-    vim ~/.gitconfig
+  vim ~/.gitconfig
 }
 function reprof {
-    # shellcheck disable=SC1090
-    source ~/.zshrc
+  # shellcheck disable=SC1090
+  source ~/.zshrc
 }
 function vimprof {
-    vim ~/.vimrc
+  vim ~/.vimrc
 }
 function setup {
-    local setup_path="$HOME/dev/setup"
-    if [[ ! -d "$setup_path" ]]; then
-        echo "$setup_path doesn't exist"
-    else
-        cd "$setup_path"
-    fi
+  local setup_path="$HOME/dev/setup"
+  if [[ ! -d "$setup_path" ]]; then
+    echo "$setup_path doesn't exist"
+  else
+    cd "$setup_path"
+  fi
 }
 
 # Dirs
 function sbx {
-    local sbx_path="$HOME/dev/sandbox"
-    if [[ ! -d "$sbx_path" ]]; then
-        echo "$sbx_path doesn't exist"
-    else
-        cd ~/dev/sandbox
-    fi
+  local sbx_path="$HOME/dev/sandbox"
+  if [[ ! -d "$sbx_path" ]]; then
+    echo "$sbx_path doesn't exist"
+  else
+    cd ~/dev/sandbox
+  fi
 }
 function wb {
-    local wb_path="$HOME/wanderbee"
-    if [[ -d "$wb_path" ]]; then
-        cd "$wb_path"
-    else
-        echo "$wb_path doesn't exist"
-    fi
+  local wb_path="$HOME/wanderbee"
+  if [[ -d "$wb_path" ]]; then
+    cd "$wb_path"
+  else
+    echo "$wb_path doesn't exist"
+  fi
 }
 function bb {
-    local bb_path="$HOME/bionicbee"
-    if [[ -d "$bb_path" ]]; then
-        cd "$bb_path"
-    else
-        echo "$bb_path doesn't exist"
-    fi
+  local bb_path="$HOME/bionicbee"
+  if [[ -d "$bb_path" ]]; then
+    cd "$bb_path"
+  else
+    echo "$bb_path doesn't exist"
+  fi
 }
 
 # Apps
 function workwork {
-    open /Applications/Mail.app
-    open /Applications/Slack.app
-    open /Applications/Calendar.app
-    open /Applications/Typora.app
-    open /Applications/Spotify.app
-    bb
+  open /Applications/Mail.app
+  open /Applications/Slack.app
+  open /Applications/Calendar.app
+  open /Applications/Typora.app
+  open /Applications/Spotify.app
+  bb
 }
 
 # Commands
 function npr {
-    npm run "$1"
+  npm run "$1"
 }
 function tunnel {
-    bb && vagrant ssh
+  bb && vagrant ssh
 }
 function up {
-    bb && vagrant up && code
+  bb && vagrant up && code
 }
 
 
@@ -198,4 +198,3 @@ zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 fpath=(~/.zsh $fpath)
 
 autoload -Uz compinit && compinit
-
