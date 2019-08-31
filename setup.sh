@@ -17,7 +17,7 @@ install_clt() {
     sort |
     tail -n1
   )
-  softwareupdate -i "$PROD" -v
+  softwareupdate -i "$PROD" --verbose
   echo
 }
 
