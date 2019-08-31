@@ -1,0 +1,44 @@
+---
+
+- name: General - use dark menu bar and dock
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleInterfaceStyle
+    type: string
+    value: Dark
+    state: present
+  notify:
+    - restart menu bar
+    - restart dock
+
+- name: General - scroll bar click behavior
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleScrollerPagingBehavior
+    type: bool
+    value: 1
+    state: present
+
+- name: General - check if bluetooth is in menu bar
+  command: defaults read com.apple.systemuiserver menuExtras
+  register: result
+  changed_when: false
+
+- name: General - show bluetooth in menu bar
+  osx_defaults:
+    domain: com.apple.systemuiserver
+    key: menuExtras
+    type: array
+    array_add: true
+    value: "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
+    state: present
+  when: "Bluetooth.menu" not in result.stdout
+  notify: restart menu bar
+
+- name: General - set menu bar clock format
+  osx_defaults:
+    domain: com.apple.menuextra.clock
+    key: DateFormat
+    type: string
+    value: ss
+    state: present

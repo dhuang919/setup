@@ -1,5 +1,5 @@
 ---
 
 - include: dock.yml
-- include: mail.yml
 - include: general.yml
+- include: keyboard.yml
