@@ -57,11 +57,9 @@
   register: homebrew_binary
 
 - name: Ensure Homebrew can install
-  file:
-    path: /usr/local/
-    owner: "{{ homebrew_user }}"
-    recurse: yes
+  shell: mkdir /usr/local/include && chown -R $(whoami) $(brew --prefix)/*
   become: true
+  warn: false
 
 - name: Symlink brew to homebrew_brew_bin_path
   file:
