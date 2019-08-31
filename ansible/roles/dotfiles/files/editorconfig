@@ -1,0 +1,25 @@
+# top-most EditorConfig file
+root = true
+
+[*]
+# Insert a new line at the end of a file
+insert_final_newline = true
+# Insert spaces when pressing `Tab`
+indent_style = space
+# Remove any whitespace characters preceding newline
+trim_trailing_whitespae = true
+
+[*.py]
+indent_size = 4
+
+[*.{sh,bash}]
+indent_size = 2
+
+[*.json]
+indent_size = 2
+
+[*.proto]
+indent_size = 2
+
+[BUILD]
+indent_size = 4
