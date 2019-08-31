@@ -2,7 +2,7 @@
 
 - name: Install pip packages
   pip:
-    name: "{{ item }}"
+    name: "{{ pip_install_packages }}"
     state: present
     executable: "{{ pip_exec }}"
-  with_items: "{{ pip_install_packages }}"
+  become: true
