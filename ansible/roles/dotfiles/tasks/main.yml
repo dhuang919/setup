@@ -43,10 +43,11 @@
     state: directory
   become: true
 
-- name: Install powerlevel10k
+- name: Clone powerlevel10k
   git:
     repo: https://github.com/romkatv/powerlevel10k.git
     dest: ~/.oh-my-zsh/custom
+    depth: 1
 
 - name: Symlink dotfiles
   file:
