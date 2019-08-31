@@ -4,7 +4,7 @@
   shell: source /usr/local/opt/nvm/nvm.sh
 
 - name: Install node 8.10.0 and set as default
-  shell: nvm install v8.10.0 && nvm alias default 8.10.0
+  shell: nvm install v8.10.0 && nvm alias default v8.10.0
 
 - name: Set npm settings
   shell: npm set progress=false && npm set package-lock=false
