@@ -2,8 +2,8 @@
 - hosts: localhost
   name: MacOS Setup
   roles:
-    - macos_settings
     - homebrew
+    - macos_settings
     - dotfiles
     - pip
     - npm
