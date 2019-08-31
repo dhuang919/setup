@@ -19,7 +19,8 @@
     key: menuExtras
     type: array
     array_add: true
-    value: "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
+    value:
+      - /System/Library/CoreServices/Menu Extras/Bluetooth.menu
     state: present
   when: '"Bluetooth.menu" not in result.stdout'
   notify: restart menu bar
