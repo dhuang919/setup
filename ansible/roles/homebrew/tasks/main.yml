@@ -39,6 +39,7 @@
     owner: "{{ homebrew_user }}"
     group: "{{ homebrew_group }}"
     mode: 0775
+    recurse: yes
   become: true
 
 - name: Do homebrew_install_path subdirs have proper ownership?
@@ -67,7 +68,6 @@
     name: "{{ item }}"
     state: present
   with_items: "{{ homebrew_casks }}"
-  become: true
   ignore_errors: true
 
 - name: Install Homebrew packages
