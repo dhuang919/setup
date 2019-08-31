@@ -16,7 +16,6 @@ homebrew_casks:
   - visual-studio-code
 
 homebrew_packages:
-  - docker
   - dockutil
   - fd
   - fzf
