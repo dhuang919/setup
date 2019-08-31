@@ -43,3 +43,5 @@ homebrew_packages:
   - tldr
   - wget
   - diff-so-fancy
+  - htop
+
