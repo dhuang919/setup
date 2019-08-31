@@ -6,7 +6,7 @@ SETUP_DIR="$HOME/dev/setup"
 mkdir -p "$SETUP_DIR"
 
 install_clt() {
-    if xcode-select -p &> /dev/null -ne 0; then
+    if xcode-select -p &> /dev/null != 0; then
         echo "Installing Command Line Tools..."
         touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
         PROD=$(
@@ -30,7 +30,7 @@ clone_setup_repo() {
 }
 
 install_pip() {
-    if command -v pip &>/dev/null -ne 0; then
+    if command -v pip &> /dev/null != 0; then
         echo "Installing pip..."
         sudo easy_install pip
     else
@@ -40,7 +40,7 @@ install_pip() {
 }
 
 install_ansible() {
-    if command -v ansible &>/dev/null -ne 0; then
+    if command -v ansible &> /dev/null != 0; then
         echo "Installing ansible..."
         sudo pip install ansible
     else
