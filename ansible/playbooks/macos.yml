@@ -4,5 +4,6 @@
   roles:
     - macos_settings
     - homebrew
-    - pip
     - dotfiles
+    - pip
+    - npm
