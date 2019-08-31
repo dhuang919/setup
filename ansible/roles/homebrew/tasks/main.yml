@@ -56,6 +56,10 @@
     path: "{{ homebrew_brew_bin_path }}/brew"
   register: homebrew_binary
 
+- name: Ensure Homebrew can install
+  shell: chown -R $(whoami) $(brew --prefix)/*
+  become: true
+
 - name: Symlink brew to homebrew_brew_bin_path
   file:
     src: "{{ homebrew_install_path }}/bin/brew"
