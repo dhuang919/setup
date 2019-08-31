@@ -145,7 +145,12 @@ function setup {
 
 # Dirs
 function sbx {
-    cd ~/sandbox
+    local sbx_path="$HOME/dev/sandbox"
+    if [[ ! -d "$sbx_path" ]]; then
+        echo "$sbx_path doesn't exist"
+    else
+        cd ~/dev/sandbox
+    fi
 }
 function wb {
     local wb_path="$HOME/wanderbee"
