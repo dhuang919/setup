@@ -59,7 +59,8 @@
 - name: Ensure Homebrew can install
   shell: mkdir /usr/local/include && chown -R $(whoami) $(brew --prefix)/*
   become: true
-  warn: false
+  args:
+    warn: false
 
 - name: Symlink brew to homebrew_brew_bin_path
   file:
