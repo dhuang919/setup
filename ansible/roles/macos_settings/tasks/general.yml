@@ -21,7 +21,7 @@
     array_add: true
     value: "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
     state: present
-  when: "Bluetooth.menu" not in result.stdout
+  when: '"Bluetooth.menu" not in result.stdout'
   notify: restart menu bar
 
 - name: General - set menu bar clock format
