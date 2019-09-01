@@ -11,6 +11,10 @@ dotfiles_base:
     src: "{{ filesdir }}/vimrc"
   ~/.zshrc:
     src: "{{ filesdir }}/zshrc"
+  ~/.editorconfig:
+    src: "{{ filesdir }}/editorconfig"
+  ~/Library/Application Support/Code/User/settings.json:
+    src: "{{ filesdir }}/settings.json"
 
 git_completion_base:
   ~/.zsh/git-completion.bash:
