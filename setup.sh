@@ -22,7 +22,9 @@ install_clt() {
 }
 
 clone_setup_repo() {
+  echo "Cloning setup repo..."
   git clone https://github.com/dhuang919/setup.git "$SETUP_DIR"
+  echo
 }
 
 install_pip() {
