@@ -10,17 +10,12 @@
   with_dict: "{{ dock_settings }}"
 
 - name: Dock - remove apps
-  shell: dockutil --remove "{{ item }}"
+  shell: dockutil --find "{{ item }}" || dockutil --remove "{{ item }}"
   ignore_errors: true
   with_items: "{{ dock_items_to_remove }}"
 
 - name: Dock - add apps
-  shell: dockutil --find "{{ item.key }}" || dockutil --add "{{ item.value.path }}"
-  ignore_errors: true
-  with_dict: "{{ dock_items_to_persist }}"
-
-- name: Dock - rearrange apps
-  shell: dockutil --move "{{ item.key }}" --position "{{ item.value.pos }}"
+  shell: dockutil --find "{{ item.key }}" || dockutil --add "{{ item.value.path }}" --after "{{ item.value.after }}"
   ignore_errors: true
   with_dict: "{{ dock_items_to_persist }}"
   notify: restart dock
