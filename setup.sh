@@ -41,6 +41,7 @@ ansible_playbook() {
   echo "Running ansible-playbook..."
   cd "$SETUP_DIR/ansible"
   ansible-playbook ./playbooks/macos.yml
+  echo
 }
 
 main() {
@@ -52,3 +53,4 @@ main() {
 }
 
 main
+
