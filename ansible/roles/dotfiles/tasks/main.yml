@@ -29,6 +29,13 @@
   shell: /tmp/fonts/install.sh
   become: true
 
+- name: Copy Operator Mono fonts
+  copy:
+    src: "{{ item }}"
+    dest: ~/Library/Fonts
+    force: no
+  with_fileglob: "{{ role_path }}/files/fonts/*"
+
 - name: Clone oh-my-zsh
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh
