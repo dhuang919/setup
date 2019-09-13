@@ -32,3 +32,6 @@
     type: string
     value: ss
     state: present
+
+- name: General - turn off font smoothing
+  command: defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
