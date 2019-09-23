@@ -30,6 +30,7 @@ homebrew_casks:
   - spotify
   - typora
   - visual-studio-code
+  - firefox
 
 homebrew_packages:
   - dockutil
@@ -44,4 +45,3 @@ homebrew_packages:
   - wget
   - diff-so-fancy
   - htop
-
