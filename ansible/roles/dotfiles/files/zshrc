@@ -189,6 +189,9 @@ function tunnel {
 function up {
   bb && vagrant up && code
 }
+function down {
+  bb && vagrant halt
+}
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
