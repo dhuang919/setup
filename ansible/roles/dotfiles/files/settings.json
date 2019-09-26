@@ -43,7 +43,7 @@
     "extensions.ignoreRecommendations": false,
     "editor.quickSuggestions": {
         "other": false,
-        "comments": false,
+        "comments": true,
         "strings": false
     },
     "editor.quickSuggestionsDelay": 10,
@@ -100,4 +100,5 @@
     ],
     "phpcs.composerJsonPath": "./beeswax/buzz_api/buzz/composer.json",
     "eslint.alwaysShowStatus": true,
+    "intelephense.environment.documentRoot": "./beeswax/buzz_api/buzz/api/api.php",
 }
