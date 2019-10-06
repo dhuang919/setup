@@ -199,7 +199,7 @@ function down {
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
-fpath=(~/.zsh/completion/ $fpath)
+fpath=(~/.zsh/completion/ ~/.homesick/repos/homeshick/completions $fpath)
 
 autoload -Uz compinit && compinit
 

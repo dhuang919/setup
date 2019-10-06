@@ -34,6 +34,7 @@ fi
       # os_icon               # os identifier
       dir                     # current directory
       vcs                     # git status
+      time
       # =========================[ Line #2 ]=========================
       newline
       prompt_char             # prompt symbol
