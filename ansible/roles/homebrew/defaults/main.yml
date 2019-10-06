@@ -45,3 +45,4 @@ homebrew_packages:
   - wget
   - diff-so-fancy
   - htop
+  - homeshick
