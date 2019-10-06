@@ -3,16 +3,6 @@
 filesdir: "{{ role_path }}/files"
 
 dotfiles_base:
-  ~/.gitconfig:
-    src: "{{ filesdir }}/gitconfig"
-  ~/.p10k.zsh:
-    src: "{{ filesdir }}/p10k.zsh"
-  ~/.vimrc:
-    src: "{{ filesdir }}/vimrc"
-  ~/.zshrc:
-    src: "{{ filesdir }}/zshrc"
-  ~/.editorconfig:
-    src: "{{ filesdir }}/editorconfig"
   ~/Library/Application Support/Code/User/settings.json:
     src: "{{ filesdir }}/settings.json"
 
