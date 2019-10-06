@@ -13,18 +13,6 @@
   register: result
   changed_when: false
 
-- name: General - show bluetooth in menu bar
-  osx_defaults:
-    domain: com.apple.systemuiserver
-    key: menuExtras
-    type: array
-    array_add: true
-    value:
-      - /System/Library/CoreServices/Menu Extras/Bluetooth.menu
-    state: present
-  when: '"Bluetooth.menu" not in result.stdout'
-  notify: restart menu bar
-
 - name: General - set menu bar clock format
   osx_defaults:
     domain: com.apple.menuextra.clock

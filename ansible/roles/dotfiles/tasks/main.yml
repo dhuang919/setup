@@ -16,7 +16,11 @@
     path: "{{ item.key }}"
     state: link
     src: "{{ item.value.src }}"
-  with_dict: "{{ git_completion_base }}"
+  with_dict:
+    ~/.zsh/git-completion.bash:
+      src: "{{ role_path }}/files/git-completion.bash"
+    ~/.zsh/_git:
+      src: "{{ role_path }}/files/git-completion.zsh"
 
 - name: Clone Powerline fonts
   git:
@@ -55,9 +59,8 @@
     repo: https://github.com/romkatv/powerlevel10k.git
     dest: ~/.oh-my-zsh/custom/themes/powerlevel10k
 
-- name: Symlink dotfiles
+- name: Symlink VSCode settings
   file:
-    path: "{{ item.key }}"
+    path: ~/Library/Application Support/Code/User/settings.json
     state: link
-    src: "{{ item.value.src }}"
-  with_dict: "{{ dotfiles_base }}"
+    src: "{{ role_path }}/files/settings.json"
