@@ -33,8 +33,8 @@ fi
       # =========================[ Line #1 ]=========================
       # os_icon               # os identifier
       dir                     # current directory
-      vcs                     # git status
       time
+      vcs                     # git status
       # =========================[ Line #2 ]=========================
       newline
       prompt_char             # prompt symbol
