@@ -33,7 +33,6 @@ fi
       # =========================[ Line #1 ]=========================
       # os_icon               # os identifier
       dir                     # current directory
-      time
       vcs                     # git status
       # =========================[ Line #2 ]=========================
       newline
@@ -46,6 +45,7 @@ fi
   # last prompt line gets hidden if it would overlap with left prompt.
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
       # =========================[ Line #1 ]=========================
+      time
       status                  # exit code of the last command
       command_execution_time  # duration of the last command
       background_jobs         # presence of background jobs
