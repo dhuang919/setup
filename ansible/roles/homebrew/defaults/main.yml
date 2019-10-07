@@ -46,3 +46,5 @@ homebrew_packages:
   - diff-so-fancy
   - htop
   - homeshick
+  - lastpass-cli
+  - twpayne/taps/chezmoi
