@@ -101,4 +101,7 @@
     "phpcs.composerJsonPath": "./beeswax/buzz_api/buzz/composer.json",
     "eslint.alwaysShowStatus": true,
     "intelephense.environment.documentRoot": "./beeswax/buzz_api/buzz/api/api.php",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.jediEnabled": false,
 }
