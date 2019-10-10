@@ -36,7 +36,6 @@ homebrew_packages:
   - dockutil
   - fd
   - fzf
-  - gnu-getopt
   - jq
   - nvm
   - shellcheck
