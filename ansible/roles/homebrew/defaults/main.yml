@@ -34,7 +34,6 @@ homebrew_casks:
 
 homebrew_packages:
   - dockutil
-  - fd
   - fzf
   - jq
   - nvm
@@ -44,6 +43,4 @@ homebrew_packages:
   - wget
   - diff-so-fancy
   - htop
-  - homeshick
-  - lastpass-cli
   - twpayne/taps/chezmoi
