@@ -44,3 +44,4 @@ homebrew_packages:
   - diff-so-fancy
   - htop
   - twpayne/taps/chezmoi
+  - bat
