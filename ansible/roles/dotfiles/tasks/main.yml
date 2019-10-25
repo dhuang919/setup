@@ -8,8 +8,9 @@
 
 - name: Create ~/.zsh dir
   file:
-    path: ~/.zsh
+    path: ~/.zsh/completion
     state: directory
+    recurse: yes
 
 - name: Setup git-completion
   file:
@@ -17,10 +18,10 @@
     state: link
     src: "{{ item.value.src }}"
   with_dict:
-    ~/.zsh/git-completion.bash:
-      src: "{{ role_path }}/files/git-completion.bash"
-    ~/.zsh/_git:
-      src: "{{ role_path }}/files/git-completion.zsh"
+    ~/.zsh/completion/git-completion.bash:
+      src: git-completion.bash
+    ~/.zsh/completion/_git:
+      src: git-completion.zsh
 
 - name: Clone Powerline fonts
   git:
