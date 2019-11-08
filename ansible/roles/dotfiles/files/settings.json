@@ -1,6 +1,7 @@
 {
     "workbench.startupEditor": "newUntitledFile",
-    "editor.fontFamily": "Operator Mono",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'zero'",
     "editor.wordWrap": "on",
     "editor.scrollBeyondLastLine": false,
     "window.title": "${activeEditorMedium}${separator}${rootName}${dirty}",
@@ -18,7 +19,7 @@
     "editor.tabSize": 4,
     "terminal.integrated.confirmOnExit": true,
     "window.zoomLevel": 0,
-    "workbench.colorTheme": "Gruvbox Dark (Soft)",
+    "workbench.colorTheme": "Gruvbox Dark (Medium)",
     "bracketPairColorizer.timeOut": 0,
     "gitlens.blame.format": "${author|7} - ${message|20?} ${ago|14-}",
     "gitlens.hovers.currentLine.enabled": false,
@@ -55,7 +56,7 @@
     "python.linting.pylintPath": "/usr/local/bin/pylint",
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
-    "phpcs.executablePath": "/home/vagrant/beeswaxio/beeswax/buzz_api/buzz/vendor/bin/phpcs",
+    "python.envFile": "${workspaceFolder}/.env",
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
@@ -95,13 +96,8 @@
         "**/.git/**": true,
         "**/*.pyc": true,
     },
-    "phpcs.ignorePatterns": [
-        "**/vendor/**"
-    ],
-    "phpcs.composerJsonPath": "./beeswax/buzz_api/buzz/composer.json",
     "eslint.alwaysShowStatus": true,
     "intelephense.environment.documentRoot": "./beeswax/buzz_api/buzz/api/api.php",
     "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "python.jediEnabled": false,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue","
 }
