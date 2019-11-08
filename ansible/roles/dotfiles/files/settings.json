@@ -19,7 +19,7 @@
     "editor.tabSize": 4,
     "terminal.integrated.confirmOnExit": true,
     "window.zoomLevel": 0,
-    "workbench.colorTheme": "Gruvbox Dark (Medium)",
+    "workbench.colorTheme": "Noctis Obscuro",
     "bracketPairColorizer.timeOut": 0,
     "gitlens.blame.format": "${author|7} - ${message|20?} ${ago|14-}",
     "gitlens.hovers.currentLine.enabled": false,
