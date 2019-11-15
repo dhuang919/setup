@@ -39,7 +39,7 @@
     src: "{{ item }}"
     dest: ~/Library/Fonts
     force: no
-  with_fileglob: "{{ role_path }}/files/fonts/*"
+  with_fileglob: fonts/*
 
 - name: Clone oh-my-zsh
   git:
@@ -64,4 +64,4 @@
   file:
     path: ~/Library/Application Support/Code/User/settings.json
     state: link
-    src: "{{ role_path }}/files/settings.json"
+    src: settings.json
