@@ -61,7 +61,7 @@
     "python.linting.pylintPath": "/home/vagrant/.local/share/virtualenvs/aster-8hC4QV6C/bin/pylint",
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
-    "python.pythonPath": "/usr/bin/python3",
+    "python.pythonPath": "/home/vagrant/.local/share/virtualenvs/aster-8hC4QV6C/bin/python",
     "python.envFile": "${workspaceFolder}/.env",
     "python.jediEnabled": true,
     "[json]": {
