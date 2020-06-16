@@ -61,6 +61,9 @@
     "python.linting.pylintPath": "/usr/local/bin/pylint",
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": [
+        "--load-plugins=pylint_django"
+    ],
     "python.pythonPath": "/home/vagrant/.local/share/virtualenvs/aster-8hC4QV6C/bin/python",
     "python.envFile": "${workspaceFolder}/.env",
     "python.jediEnabled": true,
@@ -128,6 +131,10 @@
         "ziyasal.vscode-open-in-github",
         "zxh404.vscode-proto3"
     ],
+    "remote.SSH.enableDynamicForwarding": false,
     "intelephense.diagnostics.run": "onSave",
-    "intelephense.environment.phpVersion": "7.4.1"
+    "intelephense.environment.phpVersion": "7.4.1",
+    "terminal.integrated.shell.linux": "/bin/zsh",
+    "python.testing.pytestEnabled": true,
+    "latex-workshop.view.pdf.viewer": "external"
 }
