@@ -4,3 +4,4 @@ pip_exec: pip
 pip_install_packages:
   - awscli
   - pylint
+  - ipython

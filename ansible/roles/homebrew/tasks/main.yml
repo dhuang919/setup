@@ -73,6 +73,11 @@
   become: true
   with_items: "{{ homebrew_directories }}"
 
+- name: Tap fonts
+  homebrew_tap:
+    name: caskroom/fonts
+    state: present
+
 - name: Install Homebrew casks
   homebrew_cask:
     name: "{{ item }}"

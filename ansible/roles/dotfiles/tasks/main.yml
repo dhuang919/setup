@@ -17,22 +17,12 @@
     path: "{{ item.key }}"
     state: link
     src: "{{ item.value.src }}"
+    force: yes
   with_dict:
     ~/.zsh/completion/git-completion.bash:
       src: git-completion.bash
     ~/.zsh/completion/_git:
       src: git-completion.zsh
-
-- name: Clone Powerline fonts
-  git:
-    repo: https://github.com/powerline/fonts.git
-    dest: /tmp/fonts
-    depth: 1
-  become: true
-
-- name: Install Powerline fonts
-  shell: /tmp/fonts/install.sh
-  become: true
 
 - name: Copy Operator Mono fonts
   copy:
@@ -65,3 +55,4 @@
     path: ~/Library/Application Support/Code/User/settings.json
     state: link
     src: settings.json
+    force: yes

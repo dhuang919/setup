@@ -31,6 +31,7 @@ homebrew_casks:
   - typora
   - visual-studio-code
   - firefox
+  - font-source-code-pro
 
 homebrew_packages:
   - dockutil
@@ -45,3 +46,4 @@ homebrew_packages:
   - htop
   - twpayne/taps/chezmoi
   - bat
+  - thefuck
