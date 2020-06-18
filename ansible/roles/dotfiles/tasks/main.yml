@@ -39,16 +39,16 @@
 
 - name: Symlink VSCode settings
   file:
-    path: "~/Library/Application Support/Code/User/{{ item }}"
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "~/Library/Application Support/Code/User/{{ item }}"
     state: link
-    src: "{{ item }}"
   loop:
     - extensions.json
     - settings.json
 
 - name: Create chezmoi config dir
   file:
-    path: "{{ HOME }}/.config/chezmoi"
+    path: ~/.config/chezmoi
     state: directory
 
 - name: Copy chezmoi config
