@@ -6,34 +6,6 @@
     shell: /bin/zsh
   become: true
 
-- name: Create ~/.zsh dir
-  file:
-    path: ~/.zsh/completion
-    state: directory
-    recurse: yes
-
-- name: Setup git-completion
-  file:
-    path: "{{ item.key }}"
-    state: link
-    src: "{{ item.value.src }}"
-    force: yes
-  with_dict:
-    ~/.zsh/completion/git-completion.bash:
-      src: git-completion.bash
-    ~/.zsh/completion/_git:
-      src: git-completion.zsh
-
-- name: Configure git
-  git_config:
-    name: "{{ item.key }}"
-    scope: global
-    value: "{{ item.value }}"
-  with_dict:
-    user.name: Derek Huang
-    user.email: derekh919@gmail.com
-    pull.rebase: "false"
-
 - name: Copy Operator Mono fonts
   copy:
     src: "{{ item }}"
@@ -60,12 +32,16 @@
     repo: https://github.com/romkatv/powerlevel10k.git
     dest: ~/.oh-my-zsh/custom/themes/powerlevel10k
 
+- name: Ensure VSCode dir exists
+  file:
+    path: ~/Library/Application Support/Code/User
+    state: directory
+
 - name: Symlink VSCode settings
   file:
     path: "~/Library/Application Support/Code/User/{{ item }}"
     state: link
     src: "{{ item }}"
-    force: yes
   loop:
     - extensions.json
     - settings.json
