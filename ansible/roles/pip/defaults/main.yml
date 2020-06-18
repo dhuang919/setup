@@ -2,6 +2,8 @@
 
 pip_exec: pip
 pip_install_packages:
+  - argcomplete
   - awscli
-  - pylint
   - ipython
+  - pycrypto
+  - pylint

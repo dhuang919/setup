@@ -32,6 +32,7 @@ homebrew_casks:
   - visual-studio-code
   - firefox
   - font-source-code-pro
+  - font-fira-code
 
 homebrew_packages:
   - dockutil

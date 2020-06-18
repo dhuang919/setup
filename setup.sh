@@ -16,7 +16,7 @@ function install_ansible {
 
 function ansible_playbook {
   echo "Running ansible-playbook..."
-  ansible-playbook ./playbooks/macos.yml
+  ansible-playbook ./playbooks/macos.yml --ask-vault-pass
   echo
 }
 

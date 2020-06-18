@@ -24,6 +24,16 @@
     ~/.zsh/completion/_git:
       src: git-completion.zsh
 
+- name: Configure git
+  git_config:
+    name: "{{ item.key }}"
+    scope: global
+    value: "{{ item.value }}"
+  with_dict:
+    user.name: Derek Huang
+    user.email: derekh919@gmail.com
+    pull.rebase: "false"
+
 - name: Copy Operator Mono fonts
   copy:
     src: "{{ item }}"
@@ -52,7 +62,30 @@
 
 - name: Symlink VSCode settings
   file:
-    path: ~/Library/Application Support/Code/User/settings.json
+    path: "~/Library/Application Support/Code/User/{{ item }}"
     state: link
-    src: settings.json
+    src: "{{ item }}"
     force: yes
+  loop:
+    - extensions.json
+    - settings.json
+
+- name: Create chezmoi config dir
+  file:
+    path: "{{ HOME }}/.config/chezmoi"
+    state: directory
+
+- name: Copy chezmoi config
+  copy:
+    dest: ~/.config/chezmoi/chezmoi.yml
+    src: chezmoi.yml
+  ignore_errors: true
+
+- name: Check for chezmoi repo
+  stat:
+    path: ~/.local/share/chezmoi
+  register: chezmoi_dir
+
+- name: Clone dotfiles
+  command: chezmoi init https://github.com/dhuang919/dotfiles.git
+  when: not chezmoi_dir.stat.exists
