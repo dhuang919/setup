@@ -136,5 +136,6 @@
     "intelephense.environment.phpVersion": "7.4.1",
     "terminal.integrated.shell.linux": "/bin/zsh",
     "python.testing.pytestEnabled": true,
-    "latex-workshop.view.pdf.viewer": "external"
+    "latex-workshop.view.pdf.viewer": "external",
+    "python.languageServer": "Jedi"
 }
