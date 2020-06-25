@@ -1,0 +1,752 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2020-06-25T15:15:02.840Z",
+    "__export_source": "insomnia.desktop.app:v2020.2.2",
+    "resources": [
+        {
+            "_id": "req_b27fdeb1f3c1420d884573dad7a0b823",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"view_name\": \"role_view\",\n\t\"account_id\": 1\n}"
+            },
+            "created": 1592515279861,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_1c7d896b402f493587ae1540b2117e2f",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1592515289831,
+            "method": "GET",
+            "modified": 1592947078284,
+            "name": "",
+            "parameters": [],
+            "parentId": "wrk_b4097ca2608a4274a0c038f30b6a295b",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingFollowRedirects": "global",
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "http://dev.api.beeswax.com/rest/role",
+            "_type": "request"
+        },
+        {
+            "_id": "wrk_b4097ca2608a4274a0c038f30b6a295b",
+            "created": 1592514525009,
+            "description": "",
+            "modified": 1592515376482,
+            "name": "Beeswax",
+            "parentId": null,
+            "scope": null,
+            "_type": "workspace"
+        },
+        {
+            "_id": "req_890f391c83934e1981f9df9d1ddc8fe6",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"name\": \"foo\"\n}"
+            },
+            "created": 1592515284250,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_89f25d77ee5f4129a4b6066845ccccf4",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1592515289806,
+            "method": "PATCH",
+            "modified": 1593034488297,
+            "name": "",
+            "parameters": [],
+            "parentId": "wrk_b4097ca2608a4274a0c038f30b6a295b",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingFollowRedirects": "global",
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "http://dev.api.beeswax.com/rest/v2/targeting-expression/2324",
+            "_type": "request"
+        },
+        {
+            "_id": "req_0f31e80681e045f1b0b2b140f4826e2d",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"role_id\": 1,\n\t\"account_id\": 1,\n\t\"permissions\": {\n\t\t\"targeting_expression\": 15\n\t}\n}"
+            },
+            "created": 1593096772600,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_db8d27f95b2c418db9a54869378dea0d",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1592515289793.5,
+            "method": "PUT",
+            "modified": 1593096786551,
+            "name": "",
+            "parameters": [],
+            "parentId": "wrk_b4097ca2608a4274a0c038f30b6a295b",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingFollowRedirects": "global",
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://dev.api.beeswax.com/rest/role",
+            "_type": "request"
+        },
+        {
+            "_id": "req_1f5d888fa0024aeebc3ec1afdb43deca",
+            "authentication": {},
+            "body": {},
+            "created": 1592515289781,
+            "description": "",
+            "headers": [],
+            "isPrivate": false,
+            "metaSortKey": -1592515289781,
+            "method": "DELETE",
+            "modified": 1592515318323,
+            "name": "",
+            "parameters": [],
+            "parentId": "wrk_b4097ca2608a4274a0c038f30b6a295b",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingFollowRedirects": "global",
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "http://dev.api.beeswax.com/rest/",
+            "_type": "request"
+        },
+        {
+            "_id": "req_dfad692d851e494486aaa51c86974f78",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"role_name\": \"test\",\n\t\"account_id\": 1,\n\t\"permissions\": {\n\t\t\"targeting_template\": 1\n\t},\n\t\"global\": 1\n}"
+            },
+            "created": 1593015931137,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_bdda4fc40fac4370b5d82ec6c77e19bd",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1592514914582,
+            "method": "POST",
+            "modified": 1593015998169,
+            "name": "",
+            "parameters": [],
+            "parentId": "wrk_b4097ca2608a4274a0c038f30b6a295b",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingFollowRedirects": "global",
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "http://dev.api.beeswax.com/rest/role",
+            "_type": "request"
+        },
+        {
+            "_id": "req_d54127c00ea04e29b548e57ffb7b761c",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"email\": \"info@beeswax.com\",\n\t\"password\": \"123456\",\n\t\"keep_logged_in\": true\n}"
+            },
+            "created": 1592514539383,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_bdda4fc40fac4370b5d82ec6c77e19bd",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1592514539383,
+            "method": "POST",
+            "modified": 1592515238840,
+            "name": "authenticate (local)",
+            "parameters": [],
+            "parentId": "wrk_b4097ca2608a4274a0c038f30b6a295b",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingFollowRedirects": "global",
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "http://dev.api.beeswax.com/rest/authenticate",
+            "_type": "request"
+        },
+        {
+            "_id": "req_36e62e8a24a5458aac2996c26f398096",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"view_name\": \"push_queue_extended_complete_view\",\n\t\"account_id\": \"any\"\n}"
+            },
+            "created": 1592515487036,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_9884fa0f5b0a41b3a11542810403a8f8",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1592514539358,
+            "method": "GET",
+            "modified": 1592922109522,
+            "name": "",
+            "parameters": [],
+            "parentId": "wrk_b4097ca2608a4274a0c038f30b6a295b",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingFollowRedirects": "global",
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://canary2.api.beeswax.com/rest/push_queue",
+            "_type": "request"
+        },
+        {
+            "_id": "req_69b6086b9ce04cb4bb0fae48da6fb741",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"name\": \"foo\"\n}"
+            },
+            "created": 1593095444347,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_89f25d77ee5f4129a4b6066845ccccf4",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1592514539351.75,
+            "method": "PATCH",
+            "modified": 1593096792410,
+            "name": "",
+            "parameters": [],
+            "parentId": "wrk_b4097ca2608a4274a0c038f30b6a295b",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingFollowRedirects": "global",
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "http://devderek.api.beeswax.com/rest/v2/targeting-expression/2324",
+            "_type": "request"
+        },
+        {
+            "_id": "req_7781516cebd4483cbe68e4e711b3e6c4",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"role_id\": 1,\n\t\"account_id\": 1,\n\t\"permissions\": {\n\t\t\"targeting_expression\": 15\n\t}\n}"
+            },
+            "created": 1592515513300,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_db8d27f95b2c418db9a54869378dea0d",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1592514539345.5,
+            "method": "PUT",
+            "modified": 1593017000853,
+            "name": "",
+            "parameters": [],
+            "parentId": "wrk_b4097ca2608a4274a0c038f30b6a295b",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingFollowRedirects": "global",
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://devderek.api.beeswax.com/rest/role",
+            "_type": "request"
+        },
+        {
+            "_id": "req_0ef887b721fd4c9ca325bdd4e52362c1",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\n}"
+            },
+            "created": 1592515529912,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_e621959dfbfd480a9ed42d1e3857691a",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1592514539339.25,
+            "method": "DELETE",
+            "modified": 1592515537727,
+            "name": "",
+            "parameters": [],
+            "parentId": "wrk_b4097ca2608a4274a0c038f30b6a295b",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingFollowRedirects": "global",
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://canary2.api.beeswax.com/rest/",
+            "_type": "request"
+        },
+        {
+            "_id": "req_c1533a7698864864b27c83129fcf6341",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"role_name\": \"test\",\n\t\"account_id\": 1,\n\t\"permissions\": {\n\t\t\"targeting_expression\": 1\n\t},\n\t\"global\": 1\n}"
+            },
+            "created": 1593016074079,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_bdda4fc40fac4370b5d82ec6c77e19bd",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1592514539336.125,
+            "method": "POST",
+            "modified": 1593016990411,
+            "name": "",
+            "parameters": [],
+            "parentId": "wrk_b4097ca2608a4274a0c038f30b6a295b",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingFollowRedirects": "global",
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://devderek.api.beeswax.com/rest/role",
+            "_type": "request"
+        },
+        {
+            "_id": "req_fb44b23e228e4d3b9f60ec576b271339",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"email\": \"info@beeswax.com\",\n\t\"password\": \"{{ dev_pw  }}\",\n\t\"keep_logged_in\": true\n}"
+            },
+            "created": 1592514544338,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_9884fa0f5b0a41b3a11542810403a8f8",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1592514539333,
+            "method": "POST",
+            "modified": 1593016238716,
+            "name": "authenticate",
+            "parameters": [],
+            "parentId": "wrk_b4097ca2608a4274a0c038f30b6a295b",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingFollowRedirects": "global",
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://devderek.api.beeswax.com/rest/authenticate",
+            "_type": "request"
+        },
+        {
+            "_id": "env_6aca606a2bf0836bb4b4432af7027f5d6d3cf547",
+            "color": null,
+            "created": 1592514525054,
+            "data": {},
+            "dataPropertyOrder": {},
+            "isPrivate": false,
+            "metaSortKey": 1592514525054,
+            "modified": 1593098025160,
+            "name": "Base Environment",
+            "parentId": "wrk_b4097ca2608a4274a0c038f30b6a295b",
+            "_type": "environment"
+        },
+        {
+            "_id": "jar_6aca606a2bf0836bb4b4432af7027f5d6d3cf547",
+            "cookies": [
+                {
+                    "creation": "2020-06-18T21:09:29.674Z",
+                    "domain": "dev.api.beeswax.com",
+                    "hostOnly": true,
+                    "id": "12471966147694613",
+                    "key": "PHPSESSID",
+                    "lastAccessed": "2020-06-18T21:09:29.674Z",
+                    "path": "/",
+                    "value": "2132coknt9t13sfl1dhqf6k1fc"
+                },
+                {
+                    "creation": "2020-06-18T21:20:45.444Z",
+                    "domain": "dev.api.beeswax.com",
+                    "expires": "2020-06-29T18:29:42.000Z",
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "9567294471671437",
+                    "key": "dev_buzz_cookie",
+                    "lastAccessed": "2020-06-25T14:29:42.099Z",
+                    "maxAge": 360000,
+                    "path": "/",
+                    "value": "2132coknt9t13sfl1dhqf6k1fc"
+                },
+                {
+                    "creation": "2020-06-18T21:20:45.444Z",
+                    "domain": "dev.api.beeswax.com",
+                    "expires": "2020-07-25T14:29:42.000Z",
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "6471434014525801",
+                    "key": "dev_buzz_cookie_PERSISTENT",
+                    "lastAccessed": "2020-06-25T14:29:42.099Z",
+                    "maxAge": 2592000,
+                    "path": "/",
+                    "value": "GUef9PuezWHPmjkXH1KBFJUD%3A%3AVLtpRpFzOjLUYlbKifmfSKZtzuAZhAKeEuAbghkfC6GG5nv45EeqXlvnMvmlBuGn1IKNXa1SQpHpCnOMjeo0SaZoCp0hgVYVYvAprxt4OWVn7pdAKx3WUxXg2Odz1C0A"
+                },
+                {
+                    "creation": "2020-06-18T21:23:35.137Z",
+                    "domain": "canary2.api.beeswax.com",
+                    "extensions": [
+                        "SameSite=None"
+                    ],
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "31514002309872136",
+                    "key": "PHPSESSID",
+                    "lastAccessed": "2020-06-18T21:23:35.137Z",
+                    "path": "/",
+                    "secure": true,
+                    "value": "610b48bee28a88fcde055cf37b50f763"
+                },
+                {
+                    "creation": "2020-06-18T21:24:28.772Z",
+                    "domain": "canary.api.beeswax.com",
+                    "extensions": [
+                        "SameSite=None"
+                    ],
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "8586119622372304",
+                    "key": "PHPSESSID",
+                    "lastAccessed": "2020-06-18T21:24:28.772Z",
+                    "path": "/",
+                    "secure": true,
+                    "value": "5c35d9d0a2cd26e3490eba36e8ec793d"
+                },
+                {
+                    "creation": "2020-06-18T21:24:40.613Z",
+                    "domain": "canary2.api.beeswax.com",
+                    "expires": "2020-06-27T18:21:28.000Z",
+                    "extensions": [
+                        "SameSite=None"
+                    ],
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "6576569241261756",
+                    "key": "canary2_buzz_cookie",
+                    "lastAccessed": "2020-06-23T14:21:28.919Z",
+                    "maxAge": 360000,
+                    "path": "/",
+                    "secure": true,
+                    "value": "610b48bee28a88fcde055cf37b50f763"
+                },
+                {
+                    "creation": "2020-06-18T21:24:40.613Z",
+                    "domain": "canary2.api.beeswax.com",
+                    "expires": "2021-06-22T14:21:28.000Z",
+                    "extensions": [
+                        "SameSite=None"
+                    ],
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "5940954432690393",
+                    "key": "csrftoken",
+                    "lastAccessed": "2020-06-23T14:21:28.919Z",
+                    "maxAge": 31449600,
+                    "path": "/",
+                    "secure": true,
+                    "value": "EPCbw5GjIqr7r1uTy1Q9HwVgWcrqNuVrWeMRewroreUHZ45zxbmXvm2dSlppQxVI"
+                },
+                {
+                    "creation": "2020-06-18T21:24:40.613Z",
+                    "domain": "canary2.api.beeswax.com",
+                    "expires": "2020-07-07T14:21:28.000Z",
+                    "extensions": [
+                        "SameSite=None"
+                    ],
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "814690216559077",
+                    "key": "sessionid",
+                    "lastAccessed": "2020-06-23T14:21:28.919Z",
+                    "maxAge": 1209600,
+                    "path": "/",
+                    "secure": true,
+                    "value": "rss0ej3piqye20844l1u2jfhfj5yyae8"
+                },
+                {
+                    "creation": "2020-06-18T21:24:40.613Z",
+                    "domain": "canary2.api.beeswax.com",
+                    "expires": "2020-07-23T14:21:28.000Z",
+                    "extensions": [
+                        "SameSite=None"
+                    ],
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "1582130492802949",
+                    "key": "canary2_buzz_cookie_PERSISTENT",
+                    "lastAccessed": "2020-06-23T14:21:28.919Z",
+                    "maxAge": 2592000,
+                    "path": "/",
+                    "secure": true,
+                    "value": "LbCFHKIgKz7sDisj1hUm5UpO%3A%3AhfnpF5aV4ojHwZLgcXHxhjia49fJEBnjD6d5qv8WximRkLGi5yS9jQf1RiHhR77g3K43y3411sWNWjzgOGIu9UNO4euO7cFHUphCjFlwLO1Dq8Y3Xov1qZkQ2ACkDXiQ"
+                },
+                {
+                    "creation": "2020-06-22T14:16:35.336Z",
+                    "domain": "blisspoint.api.beeswax.com",
+                    "extensions": [
+                        "SameSite=None"
+                    ],
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "5547591286762474",
+                    "key": "PHPSESSID",
+                    "lastAccessed": "2020-06-22T14:16:35.336Z",
+                    "path": "/",
+                    "secure": true,
+                    "value": "282bb4439f5530340c5bbde76959b3ae"
+                },
+                {
+                    "creation": "2020-06-22T14:16:35.336Z",
+                    "domain": "blisspoint.api.beeswax.com",
+                    "expires": "2020-06-26T18:17:13.000Z",
+                    "extensions": [
+                        "SameSite=None"
+                    ],
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "07756795700478625",
+                    "key": "blisspoint_buzz_cookie",
+                    "lastAccessed": "2020-06-22T14:17:14.009Z",
+                    "maxAge": 360000,
+                    "path": "/",
+                    "secure": true,
+                    "value": "282bb4439f5530340c5bbde76959b3ae"
+                },
+                {
+                    "creation": "2020-06-22T14:16:35.336Z",
+                    "domain": "blisspoint.api.beeswax.com",
+                    "expires": "2021-06-21T14:17:13.000Z",
+                    "extensions": [
+                        "SameSite=None"
+                    ],
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "6226299963923803",
+                    "key": "csrftoken",
+                    "lastAccessed": "2020-06-22T14:17:14.009Z",
+                    "maxAge": 31449599,
+                    "path": "/",
+                    "secure": true,
+                    "value": "KgCdpa5UTw9VF0hpAoa0GRBfjhUjt1RGxRgyB2dED7kOoCDEJRa1PZZIDvwzKbVe"
+                },
+                {
+                    "creation": "2020-06-22T14:16:35.336Z",
+                    "domain": "blisspoint.api.beeswax.com",
+                    "expires": "2020-07-06T14:17:13.000Z",
+                    "extensions": [
+                        "SameSite=None"
+                    ],
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "9874456890956369",
+                    "key": "sessionid",
+                    "lastAccessed": "2020-06-22T14:17:14.009Z",
+                    "maxAge": 1209599,
+                    "path": "/",
+                    "secure": true,
+                    "value": "29t9hf2jnmfhm4ur9qfx92p291sco8lq"
+                },
+                {
+                    "creation": "2020-06-22T14:16:35.336Z",
+                    "domain": "blisspoint.api.beeswax.com",
+                    "expires": "2020-07-22T14:17:14.000Z",
+                    "extensions": [
+                        "SameSite=None"
+                    ],
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "638790282209629",
+                    "key": "blisspoint_buzz_cookie_PERSISTENT",
+                    "lastAccessed": "2020-06-22T14:17:14.009Z",
+                    "maxAge": 2592000,
+                    "path": "/",
+                    "secure": true,
+                    "value": "9LBXiJL5bJubNABfAOon2WVC%3A%3AkVZCOd9Rec4faHNkbz88cP4DurdgyqDZZnxOfbMVRPEz37nCX1bQGyw2n8p9keQMhAOS9UQmFYBICy7auLPO8T5oosmRandDwvk09HDwtf9YrSAN1GPPSSofoL3uBIr3"
+                },
+                {
+                    "creation": "2020-06-23T21:02:26.266Z",
+                    "domain": "dev.api.beeswax.com",
+                    "expires": "2021-06-24T14:29:42.000Z",
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "9508221986351586",
+                    "key": "csrftoken",
+                    "lastAccessed": "2020-06-25T14:29:42.099Z",
+                    "maxAge": 31449600,
+                    "path": "/",
+                    "value": "yUjl7bILmPUvZ9k2vwrND4RXhuXjUlP1jOK4ygDkqmSKtYCrM7umM6xXWJykMsLf"
+                },
+                {
+                    "creation": "2020-06-23T21:02:26.266Z",
+                    "domain": "dev.api.beeswax.com",
+                    "expires": "2020-07-09T14:29:42.000Z",
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "5050703207190983",
+                    "key": "sessionid",
+                    "lastAccessed": "2020-06-25T14:29:42.099Z",
+                    "maxAge": 1209600,
+                    "path": "/",
+                    "value": "4npkdac31tfmpoaif0xrkx126ovtlxgo"
+                },
+                {
+                    "creation": "2020-06-24T16:30:04.838Z",
+                    "domain": "devderek.api.beeswax.com",
+                    "extensions": [
+                        "SameSite=None"
+                    ],
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "2667481039144797",
+                    "key": "PHPSESSID",
+                    "lastAccessed": "2020-06-24T16:30:04.838Z",
+                    "path": "/",
+                    "secure": true,
+                    "value": "50f5f315ae7d2a05e9153c5dc7b6e1d4"
+                },
+                {
+                    "creation": "2020-06-24T16:30:39.418Z",
+                    "domain": "devderek.api.beeswax.com",
+                    "expires": "2020-06-28T20:30:39.000Z",
+                    "extensions": [
+                        "SameSite=None"
+                    ],
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "32914731459185154",
+                    "key": "devderek_buzz_cookie",
+                    "lastAccessed": "2020-06-24T16:30:39.418Z",
+                    "maxAge": 360000,
+                    "path": "/",
+                    "secure": true,
+                    "value": "50f5f315ae7d2a05e9153c5dc7b6e1d4"
+                },
+                {
+                    "creation": "2020-06-24T16:30:39.418Z",
+                    "domain": "devderek.api.beeswax.com",
+                    "expires": "2021-06-23T16:30:39.000Z",
+                    "extensions": [
+                        "SameSite=None"
+                    ],
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "1994434742278972",
+                    "key": "csrftoken",
+                    "lastAccessed": "2020-06-24T16:30:39.418Z",
+                    "maxAge": 31449600,
+                    "path": "/",
+                    "secure": true,
+                    "value": "vqvFvMg11guwgYjqJp9KL51cJycgCtFNhZKkSp83qrqhT4l7tID73MAATwLMirxc"
+                },
+                {
+                    "creation": "2020-06-24T16:30:39.418Z",
+                    "domain": "devderek.api.beeswax.com",
+                    "expires": "2020-07-08T16:30:39.000Z",
+                    "extensions": [
+                        "SameSite=None"
+                    ],
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "9512109078524835",
+                    "key": "sessionid",
+                    "lastAccessed": "2020-06-24T16:30:39.418Z",
+                    "maxAge": 1209600,
+                    "path": "/",
+                    "secure": true,
+                    "value": "r8bhqwy0holuni2b7bga5ruptta4ilzt"
+                },
+                {
+                    "creation": "2020-06-24T16:30:39.419Z",
+                    "domain": "devderek.api.beeswax.com",
+                    "expires": "2020-07-24T16:30:39.000Z",
+                    "extensions": [
+                        "SameSite=None"
+                    ],
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "842527139649365",
+                    "key": "devderek_buzz_cookie_PERSISTENT",
+                    "lastAccessed": "2020-06-24T16:30:39.419Z",
+                    "maxAge": 2592000,
+                    "path": "/",
+                    "secure": true,
+                    "value": "VqvolZsNWSHJIhIOs6QdmQLg%3A%3Ami2njaeGLjI21h6Nf6UeR3XwkWNMuwIIwIh9JDbaL9GllcDb5iKQYwK9HbYqNiiCm5Gpab6yXPhyxgFAWOJyjiVy3C3rzoL9zWanoF4NV5wvt2oUkmuzprBMcb3y6eV3"
+                }
+            ],
+            "created": 1592514525057,
+            "modified": 1593095382099,
+            "name": "Default Jar",
+            "parentId": "wrk_b4097ca2608a4274a0c038f30b6a295b",
+            "_type": "cookie_jar"
+        },
+        {
+            "_id": "spc_ace6f159464d425b93fc4f74d33477ec",
+            "contentType": "yaml",
+            "contents": "",
+            "created": 1592514525010,
+            "fileName": "Insomnia",
+            "modified": 1592514525010,
+            "parentId": "wrk_b4097ca2608a4274a0c038f30b6a295b",
+            "_type": "api_spec"
+        }
+    ]
+}
