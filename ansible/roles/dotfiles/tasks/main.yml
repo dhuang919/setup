@@ -46,6 +46,17 @@
     - extensions.json
     - settings.json
 
+- name: Ensure Hammerspoon directory exists
+  file:
+    path: /Users/derekhuang/.hammerspoon
+    state: directory
+
+- name: Symlink Hammerspoon init
+  file:
+    src: "{{ role_path }}/files/init.lua"
+    dest: "~/.hammserspoon/init.lua"
+    state: link
+
 - name: Create chezmoi config dir
   file:
     path: ~/.config/chezmoi

@@ -25,6 +25,7 @@ homebrew_directories:
 homebrew_casks:
   - dropbox
   - google-chrome
+  - hammerspoon
   - iterm2
   - slack
   - spotify
