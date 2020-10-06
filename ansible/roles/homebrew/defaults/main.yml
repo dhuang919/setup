@@ -7,12 +7,12 @@ homebrew_install_path: "{{ homebrew_prefix }}/Homebrew"
 homebrew_brew_bin_path: "{{ homebrew_prefix }}/bin"
 
 homebrew_directories:
-  - Cellar
-  - Homebrew
-  - Frameworks
-  - Caskroom
   - bin
+  - Caskroom
+  - Cellar
   - etc
+  - Frameworks
+  - Homebrew
   - include
   - lib
   - opt
@@ -24,6 +24,9 @@ homebrew_directories:
 
 homebrew_casks:
   - dropbox
+  - firefox
+  - font-fira-code
+  - font-source-code-pro
   - google-chrome
   - hammerspoon
   - iterm2
@@ -31,21 +34,19 @@ homebrew_casks:
   - spotify
   - typora
   - visual-studio-code
-  - firefox
-  - font-source-code-pro
-  - font-fira-code
 
 homebrew_packages:
+  - bat
+  - croc
+  - diff-so-fancy
   - dockutil
   - fzf
+  - htop
   - jq
   - nvm
   - shellcheck
   - the_silver_searcher
-  - tldr
-  - wget
-  - diff-so-fancy
-  - htop
-  - twpayne/taps/chezmoi
-  - bat
   - thefuck
+  - tldr
+  - twpayne/taps/chezmoi
+  - wget
