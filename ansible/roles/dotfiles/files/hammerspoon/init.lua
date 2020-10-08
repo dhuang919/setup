@@ -37,9 +37,6 @@
 --   },
 -- }
 
-hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'W', function()
-  local displays = hs.screen.allScreens()
-  local foo = hs.application.open('spotify', 5, true)
-  foo:getWindow().moveToScreen(displays[1], false, true)
-end)
-
+local config = require("config")
+local hotkeys = require("hotkeys")
+local screens = require("screens")
