@@ -3,8 +3,7 @@ local o = require("open")
 
 
 hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'W', function()
-  o.openAndMove("Mail", "LAPTOP", 0.05, 0.02, 0.77, 0.8)
-  o.openAndMove("Slack", "LAPTOP", 0.063, 0.2, 0.9, 0.77)
+  o.openAndMove("Slack", "LAPTOP", 0.063, 0.02, 0.9, 0.95)
   o.openAndMove("Spotify", "LAPTOP", 0.233, 0.01, 0.77, 0.7)
   o.openAndMove("Calendar", "LAPTOP", 0.31, 0.287, 0.68, 0.67)
 
