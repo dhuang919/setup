@@ -1,13 +1,14 @@
-ALL_SCREENS = hs.screen.allScreens()
+LAPTOP = hs.screen.find('Color LCD')
+HORIZONTAL = hs.screen.find('DELL U2518D')
+VERTICAL = hs.screen.find('DELL U2515H')
 
 SCREENS = {
-  LAPTOP = ALL_SCREENS[1],
-  HORIZONTAL = ALL_SCREENS[2],
-  VERTICAL = ALL_SCREENS[3],
+  LAPTOP = LAPTOP,
+  HORIZONTAL = HORIZONTAL,
+  VERTICAL = VERTICAL,
 }
 
 local screens = {}
-screens.ALL_SCREENS = ALL_SCREENS
 screens.SCREENS = SCREENS
 
 function screens.placeWindow(window, screen, t_ratio, l_ratio, h_ratio, w_ratio)

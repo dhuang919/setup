@@ -1,19 +1,21 @@
-local screens = require("screens")
+local screens = require('screens')
 
-function open(app)
-  focused = hs.application.launchOrFocus(app)
-  if app == "Code" and not focused then
+function getApp(app)
+  focused = hs.application.get(app)
+  if app == 'Code' and not focused then
     -- special logic for vscode — https://github.com/Hammerspoon/hammerspoon/issues/2075
-    focused = hs.application.launchOrFocus("Visual Studio Code")
+    focused = hs.application.get('Visual Studio Code')
   end
   return focused
 end
 
-function openAndMove(app, screen, t_ratio, l_ratio, h_ratio, w_ratio)
-  print("app", app)
-  focused = open(app)
+function moveIfOpen(app, screen, t_ratio, l_ratio, h_ratio, w_ratio)
+  focused = getApp(app)
   if not focused then return false end
-  window = hs.window.focusedWindow()
+  activate_success = focused:activate()
+  if not activate_success then return false end
+  window = focused:focusedWindow()
+  if not window then return false end
   screens.placeWindow(window, screen, t_ratio, l_ratio, h_ratio, w_ratio)
   return true
 end
@@ -28,7 +30,6 @@ function openFullScreen(app, screen)
 end
 
 local o = {}
-o.open = open
-o.openAndMove = openAndMove
+o.moveIfOpen = moveIfOpen
 o.openFullScreen = openFullScreen
 return o
