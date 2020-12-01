@@ -29,6 +29,7 @@ homebrew_casks:
   - font-source-code-pro
   - google-chrome
   - hammerspoon
+  - imagemagick
   - iterm2
   - slack
   - spotify
