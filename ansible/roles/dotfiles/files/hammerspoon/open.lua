@@ -9,14 +9,14 @@ function getApp(app)
   return focused
 end
 
-function moveIfOpen(app, screen, t_ratio, l_ratio, h_ratio, w_ratio)
+function moveIfOpen(app, screen, ratios)
   focused = getApp(app)
   if not focused then return false end
   activate_success = focused:activate()
   if not activate_success then return false end
   window = focused:focusedWindow()
   if not window then return false end
-  screens.placeWindow(window, screen, t_ratio, l_ratio, h_ratio, w_ratio)
+  screens.placeWindow(window, screen, ratios)
   return true
 end
 

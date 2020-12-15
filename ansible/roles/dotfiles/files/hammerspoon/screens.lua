@@ -11,20 +11,23 @@ SCREENS = {
 local screens = {}
 screens.SCREENS = SCREENS
 
-function screens.placeWindow(window, screen, t_ratio, l_ratio, h_ratio, w_ratio)
+function screens.placeWindow(window, screen, ratios)
   screen = screens.SCREENS[screen]
-  screen_height = screen:frame().h
-  screen_width = screen:frame().w
-
-  top = screen_height * t_ratio
-  left = screen_width * l_ratio
-  height = screen_height * h_ratio
-  width = screen_width * w_ratio
-
-  window:setFullScreen(false)
   window:moveToScreen(SCREENS[screen])
-  window:setTopLeft(screen:localToAbsolute(hs.geometry.point(left, top)))
-  window:setSize(hs.geometry.size(width, height))
+  if ratios.full_screen then
+    window:setFullScreen(true)
+  else
+    screen_height = screen:frame().h
+    screen_width = screen:frame().w
+
+    top = screen_height * ratios.top
+    left = screen_width * ratios.left
+    height = screen_height * ratios.height
+    width = screen_width * ratios.width
+
+    window:setTopLeft(screen:localToAbsolute(hs.geometry.point(left, top)))
+    window:setSize(hs.geometry.size(width, height))
+  end
 end
 
 return screens
