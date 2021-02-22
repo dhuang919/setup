@@ -6,7 +6,7 @@ local ratios = {
     full_screen = false,
     top = 0.063,
     left = 0.02,
-    height = 0.9,
+    height = 0.875,
     width = 0.95,
   },
   spotify = {
