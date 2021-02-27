@@ -1,4 +1,3 @@
-local c = require('config')
 local o = require('open')
 
 local ratios = {
