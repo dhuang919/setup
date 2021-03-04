@@ -1,6 +1,10 @@
-LAPTOP = hs.screen.find('Color LCD')
-HORIZONTAL = hs.screen.find('DELL U2518D')
-VERTICAL = hs.screen.find('DELL U2515H')
+local retina_id = 69734272
+local horizontal_id = 722499789
+local vertical_id = 724851918
+
+LAPTOP = hs.screen.find(retina_id)
+HORIZONTAL = hs.screen.find(horizontal_id)
+VERTICAL = hs.screen.find(vertical_id)
 
 SCREENS = {
   LAPTOP = LAPTOP,
