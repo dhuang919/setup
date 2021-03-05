@@ -1,22 +1,25 @@
-LAPTOP = hs.screen.find('Built-in Retina Display')
-HORIZONTAL = hs.screen.find('DELL U2518D')
-VERTICAL = hs.screen.find('DELL U2515H')
+SCREENS = {}
 
-SCREENS = {
-  LAPTOP = LAPTOP,
-  HORIZONTAL = HORIZONTAL,
-  VERTICAL = VERTICAL,
-}
+for k, v in ipairs(hs.screen.allScreens()) do
+  if string.find(v:name(), 'Retina') then
+    SCREENS.LAPTOP = v
+  end
+  if string.find(v:name(), 'U2518D') then
+    SCREENS.HORIZONTAL = v
+  end
+  if string.find(v:name(), 'U2515H') then
+    SCREENS.VERTICAL = v
+  end
+end
 
 local screens = {}
 screens.SCREENS = SCREENS
--- for k, v in ipairs(hs.screen.allScreens()) do
---   print(v)
--- end
+
 function screens.placeWindow(window, screen, ratios)
   local screenObj = screens.SCREENS[screen]
-  -- print(screen)
-  -- print(screenObj)
+  if screenObj == nil then
+    return
+  end
   window:moveToScreen(SCREENS[screen])
   if ratios.full_screen then
     window:setFullScreen(true)
