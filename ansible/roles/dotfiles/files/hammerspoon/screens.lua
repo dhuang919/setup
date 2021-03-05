@@ -1,10 +1,6 @@
-local retina_id = 69734272
-local horizontal_id = 722499789
-local vertical_id = 724851918
-
-LAPTOP = hs.screen.find(retina_id)
-HORIZONTAL = hs.screen.find(horizontal_id)
-VERTICAL = hs.screen.find(vertical_id)
+LAPTOP = hs.screen.find('Built-in Retina Display')
+HORIZONTAL = hs.screen.find('DELL U2518D')
+VERTICAL = hs.screen.find('DELL U2515H')
 
 SCREENS = {
   LAPTOP = LAPTOP,
@@ -14,22 +10,26 @@ SCREENS = {
 
 local screens = {}
 screens.SCREENS = SCREENS
-
+-- for k, v in ipairs(hs.screen.allScreens()) do
+--   print(v)
+-- end
 function screens.placeWindow(window, screen, ratios)
-  screen = screens.SCREENS[screen]
+  local screenObj = screens.SCREENS[screen]
+  -- print(screen)
+  -- print(screenObj)
   window:moveToScreen(SCREENS[screen])
   if ratios.full_screen then
     window:setFullScreen(true)
   else
-    screen_height = screen:frame().h
-    screen_width = screen:frame().w
+    screen_height = screenObj:frame().h
+    screen_width = screenObj:frame().w
 
     top = screen_height * ratios.top
     left = screen_width * ratios.left
     height = screen_height * ratios.height
     width = screen_width * ratios.width
 
-    window:setTopLeft(screen:localToAbsolute(hs.geometry.point(left, top)))
+    window:setTopLeft(screenObj:localToAbsolute(hs.geometry.point(left, top)))
     window:setSize(hs.geometry.size(width, height))
   end
 end
