@@ -26,8 +26,8 @@ local ratios = {
     full_screen = false,
     top = 0.16,
     left = 0.428,
-    height = 0.718,
-    width = 0.462,
+    height = 0.55,
+    width = 0.4,
   },
   chrome = {
     full_screen = false,
