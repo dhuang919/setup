@@ -89,6 +89,7 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "git.ignoreLegacyWarning": true,
+  "git.detectSubmodulesLimit": 15,
   "workbench.colorCustomizations": {
     "editor.selectionBackground": "#135564",
     "editor.selectionHighlightBackground": "#135564"
