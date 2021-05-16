@@ -49,5 +49,4 @@ homebrew_packages:
   - the_silver_searcher
   - thefuck
   - tldr
-  - twpayne/taps/chezmoi
   - wget
