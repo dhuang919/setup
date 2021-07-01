@@ -45,6 +45,7 @@ homebrew_packages:
   - imagemagick
   - jq
   - nvm
+  - pyenv
   - shellcheck
   - the_silver_searcher
   - thefuck
