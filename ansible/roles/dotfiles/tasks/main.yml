@@ -1,11 +1,5 @@
 ---
 
-- name: Set zsh as default shell
-  user:
-    name: "{{ ansible_user_id }}"
-    shell: /bin/zsh
-  become: true
-
 - name: Copy Operator Mono fonts
   copy:
     src: "{{ item }}"
@@ -37,11 +31,16 @@
     path: ~/.hammerspoon
     state: directory
 
-- name: Symlink Hammerspoon init
+- name: Symlink Hammerspoon files
   file:
-    src: "{{ role_path }}/files/hammerspoon/init.lua"
-    dest: "~/.hammerspoon/init.lua"
+    src: "{{ role_path }}/files/hammerspoon/{{ item }}.lua"
+    dest: "~/.hammerspoon/{{ item }}.lua"
     state: link
+  loop:
+    - init
+    - hotkeys
+    - open
+    - screens
 
 - name: Check for yadm
   stat:
