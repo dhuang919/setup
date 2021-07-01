@@ -51,10 +51,15 @@
     path: ~/.hammerspoon
     state: directory
 
+- name: Copy Hammerspoon init
+  copy:
+    src: "{{ role_path }}/files/hammerspoon/init.lua"
+    dest: ~/.hammerspoon/init.lua
+
 - name: Symlink Hammerspoon init
   file:
     src: "{{ role_path }}/files/hammerspoon/init.lua"
-    dest: "~/.hammserspoon/init.lua"
+    dest: ~/.hammserspoon/init.lua
     state: link
 
 - name: Check for yadm
