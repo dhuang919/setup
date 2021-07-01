@@ -48,7 +48,7 @@
 
 - name: Ensure Hammerspoon directory exists
   file:
-    path: /Users/derekhuang/.hammerspoon
+    path: ~/.hammerspoon
     state: directory
 
 - name: Symlink Hammerspoon init
