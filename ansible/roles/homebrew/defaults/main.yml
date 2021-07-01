@@ -41,11 +41,11 @@ homebrew_packages:
   - diff-so-fancy
   - dockutil
   - fzf
+  - gnupg
   - htop
   - imagemagick
   - jq
   - nvm
-  - openssl
   - pyenv
   - shellcheck
   - the_silver_searcher
