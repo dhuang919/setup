@@ -32,20 +32,6 @@
     repo: https://github.com/romkatv/powerlevel10k.git
     dest: ~/.oh-my-zsh/custom/themes/powerlevel10k
 
-- name: Ensure VSCode dir exists
-  file:
-    path: ~/Library/Application Support/Code/User
-    state: directory
-
-- name: Symlink VSCode settings
-  file:
-    src: "{{ role_path }}/files/{{ item }}"
-    dest: "~/Library/Application Support/Code/User/{{ item }}"
-    state: link
-  loop:
-    - extensions.json
-    - settings.json
-
 - name: Ensure Hammerspoon directory exists
   file:
     path: ~/.hammerspoon
