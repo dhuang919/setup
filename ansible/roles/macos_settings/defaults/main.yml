@@ -20,12 +20,6 @@ dock_items_to_persist:
   Slack:
     path: /Applications/Slack.app
     after: Messages
-  Calendar:
-    path: /Applications/Calendar.app
-    after: Slack
-  Mail:
-    path: /Applications/Mail.app
-    after: Calendar
   Google Chrome:
     path: "/Applications/Google Chrome.app"
     after: Mail
