@@ -53,7 +53,7 @@
 
 - name: Symlink Hammerspoon init
   file:
-    src: "{{ role_path }}/files/init.lua"
+    src: "{{ role_path }}/files/hammerspoon/init.lua"
     dest: "~/.hammserspoon/init.lua"
     state: link
 
