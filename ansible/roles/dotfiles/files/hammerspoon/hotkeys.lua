@@ -71,3 +71,8 @@ hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'W', function()
   o.moveIfOpen('iTerm2', 'VERTICAL', ratios.iterm)
   o.moveIfOpen('Google Chrome', 'VERTICAL', ratios.chrome)
 end)
+
+hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'R', function()
+  hs.reload()
+  hs.notify.new({title='Hammerspoon', informativeText='Config reloaded'}):send()
+end)
