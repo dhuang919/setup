@@ -54,7 +54,7 @@
 - name: Symlink Hammerspoon init
   file:
     src: "{{ role_path }}/files/hammerspoon/init.lua"
-    dest: "~/.hammserspoon/init.lua"
+    dest: "~/.hammerspoon/init.lua"
     state: link
 
 - name: Check for yadm
