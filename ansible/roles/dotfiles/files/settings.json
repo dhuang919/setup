@@ -135,7 +135,6 @@
     "remote.SSH.enableDynamicForwarding": false,
     "intelephense.diagnostics.run": "onSave",
     "intelephense.environment.phpVersion": "7.4.1",
-    "terminal.integrated.shell.linux": "/bin/zsh",
     "python.testing.pytestEnabled": true,
     "latex-workshop.view.pdf.viewer": "external",
     "python.languageServer": "Jedi",
@@ -145,5 +144,13 @@
     "notebook.cellToolbarLocation": {
       "default": "right",
       "jupyter-notebook": "left"
-    }
+    },
+    "python.formatting.blackPath": "/home/vagrant/.local/bin/black",
+    "python.formatting.provider": "black",
+    "[python]": {
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+      }
+    },
   }
