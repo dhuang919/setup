@@ -16,8 +16,7 @@
   "less.validate": false,
   "gitlens.statusBar.alignment": "left",
   "gitlens.statusBar.format": "${id} - ${author}, ${ago} - ${message|40}",
-  "terminal.integrated.confirmOnExit": true,
-  "window.zoomLevel": 0,
+  "terminal.integrated.confirmOnExit": "never",
   "workbench.colorTheme": "Noctis Obscuro",
   "gitlens.blame.format": "${author|7} - ${message|20?} ${ago|14-}",
   "gitlens.hovers.currentLine.enabled": false,
@@ -41,7 +40,8 @@
   "editor.acceptSuggestionOnCommitCharacter": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
-  "python.linting.pylintPath": "/home/vagrant/.local/lib/beeswax/py3_pylint_venv/bin/pylint",
+  "python.formatting.blackPath": "~/.local/bin/black",
+  "python.linting.pylintPath": "~/.local/lib/beeswax/py3_pylint_venv/bin/pylint",
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
   "python.linting.pylintArgs": [
@@ -92,7 +92,6 @@
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "vsintellicode.python.completionsEnabled": false,
-  "phpcs.executablePath": "/home/vagrant/beeswaxio/beeswax/buzz_api/buzz/vendor/bin/phpcs",
   "remote.SSH.defaultExtensions": [
     "alefragnani.bookmarks",
     "batisteo.vscode-django",
@@ -121,8 +120,6 @@
     "default": "right",
     "jupyter-notebook": "left"
   },
-  "python.formatting.blackPath": "/home/vagrant/.local/bin/black",
-  "python.formatting.provider": "black",
   "[python]": {
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
@@ -133,5 +130,9 @@
   "python.showStartPage": false,
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "workbench.startupEditor": "none",
+  "[sql]": {
+    "editor.defaultFormatter": "mtxr.sqltools"
   }
 }
