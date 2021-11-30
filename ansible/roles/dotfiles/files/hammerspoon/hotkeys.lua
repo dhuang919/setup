@@ -50,7 +50,7 @@ local ratios = {
     height = 0.77,
     width = 0.7,
   },
-  typora = {
+  obsidian = {
     full_screen = false,
     top = 0.16,
     left = 0.428,
@@ -60,13 +60,12 @@ local ratios = {
 }
 
 hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'W', function()
-  -- o.moveIfOpen('Calendar', 'LAPTOP', ratios.calendar)
   o.moveIfOpen('Slack', 'LAPTOP', ratios.slack)
   o.moveIfOpen('Spotify', 'LAPTOP', ratios.spotify)
 
   o.moveIfOpen('Insomnia', 'HORIZONTAL', ratios.insomnia)
   o.moveIfOpen('Microsoft Outlook', 'HORIZONTAL', ratios.outlook)
-  o.moveIfOpen('Typora', 'HORIZONTAL', ratios.typora)
+  o.moveIfOpen('Obsidian', 'HORIZONTAL', ratios.obsidian)
 
   o.moveIfOpen('iTerm2', 'VERTICAL', ratios.iterm)
   o.moveIfOpen('Google Chrome', 'VERTICAL', ratios.chrome)
