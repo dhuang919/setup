@@ -35,8 +35,8 @@ dock_items_to_persist:
   System Preferences:
     path: "/Applications/System Preferences.app"
     after: Notes
-  Typora:
-    path: /Applications/Typora.app
+  Obsidian:
+    path: /Applications/Obsidian.app
     after: System Preferences
 
 dock_settings:

@@ -30,9 +30,9 @@ homebrew_casks:
   - google-chrome
   - hammerspoon
   - iterm2
+  - obsidian
   - slack
   - spotify
-  - typora
   - visual-studio-code
 
 homebrew_packages:
@@ -49,6 +49,5 @@ homebrew_packages:
   - pyenv
   - shellcheck
   - the_silver_searcher
-  - thefuck
   - tldr
   - wget

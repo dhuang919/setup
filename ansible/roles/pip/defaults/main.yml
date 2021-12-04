@@ -5,5 +5,6 @@ pip_install_packages:
   - argcomplete
   - awscli
   - ipython
-  - pycrypto
   - pylint
+  - thefuck
+  - black
