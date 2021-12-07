@@ -41,8 +41,8 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   "python.formatting.provider": "black",
-  "python.formatting.blackPath": "~/.local/bin/black",
-  "python.linting.pylintPath": "~/.local/lib/beeswax/py3_pylint_venv/bin/pylint",
+  "python.formatting.blackPath": "~/.pyenv/shims/black",
+  "python.linting.pylintPath": "~/.pyenv/shims/pylint",
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
   "python.linting.pylintArgs": [
@@ -137,5 +137,6 @@
     "editor.defaultFormatter": "mtxr.sqltools"
   },
   "docker.showStartPage": false,
-  "editor.bracketPairColorization.enabled": true
+  "editor.bracketPairColorization.enabled": true,
+  "latex-workshop.view.pdf.viewer": "tab"
 }
