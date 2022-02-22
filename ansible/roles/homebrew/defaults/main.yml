@@ -36,7 +36,6 @@ homebrew_casks:
   - visual-studio-code
 
 homebrew_packages:
-  - bat
   - croc
   - diff-so-fancy
   - dockutil
@@ -48,6 +47,7 @@ homebrew_packages:
   - nvm
   - pyenv
   - shellcheck
+  - svn  # needed for fonts as of 2/22
   - the_silver_searcher
   - tldr
   - wget
