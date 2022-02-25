@@ -1,26 +1,12 @@
 local o = require('open')
 
 local ratios = {
-  calendar = {
-    full_screen = false,
-    top = 0.31,
-    left = 0.287,
-    height = 0.68,
-    width = 0.67,
-  },
   chrome = {
     full_screen = false,
     top = 0.19,
     left = 0,
     height = 0.378,
     width = 1,
-  },
-  insomnia = {
-    full_screen = false,
-    top = 0.308,
-    left = 0.312,
-    height = 0.58,
-    width = 0.56,
   },
   iterm = {
     full_screen = false,
@@ -29,12 +15,12 @@ local ratios = {
     height = 0.44,
     width = 1,
   },
-  outlook = {
+  mail = {
     full_screen = false,
-    top = 0.1,
-    left = 0.132,
-    height = 0.65,
-    width = 0.57,
+    top = 0.05,
+    left = 0.004,
+    height = 0.77,
+    width = 0.8,
   },
   slack = {
     full_screen = false,
@@ -60,11 +46,11 @@ local ratios = {
 }
 
 hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'W', function()
+  o.moveIfOpen('Mail', 'LAPTOP', ratios.mail)
   o.moveIfOpen('Slack', 'LAPTOP', ratios.slack)
   o.moveIfOpen('Spotify', 'LAPTOP', ratios.spotify)
 
   o.moveIfOpen('Insomnia', 'HORIZONTAL', ratios.insomnia)
-  o.moveIfOpen('Microsoft Outlook', 'HORIZONTAL', ratios.outlook)
   o.moveIfOpen('Obsidian', 'HORIZONTAL', ratios.obsidian)
 
   o.moveIfOpen('iTerm2', 'VERTICAL', ratios.iterm)
