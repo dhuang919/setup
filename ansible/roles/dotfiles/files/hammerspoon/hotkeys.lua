@@ -17,7 +17,7 @@ local ratios = {
   },
   mail = {
     full_screen = false,
-    top = 0.05,
+    top = 0.03,
     left = 0.004,
     height = 0.77,
     width = 0.8,
