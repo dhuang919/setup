@@ -1,7 +1,0 @@
----
-# TODO: determine why these didn't work
-- name: install vim plugins
-  shell: vim -c PlugInstall -c qa
-
-- name: source .zsh
-  shell: source ~/.zsh

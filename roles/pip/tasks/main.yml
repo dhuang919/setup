@@ -1,9 +1,0 @@
----
-
-- name: Install pip packages
-  pip:
-    name: "{{ pip_install_packages }}"
-    state: present
-    executable: "{{ pip_exec }}"
-    extra_args: --user
-  become: true

@@ -18,8 +18,6 @@ homebrew_directories:
   - opt
   - sbin
   - share
-  - share/zsh
-  - share/zsh/site-functions
   - var
 
 homebrew_casks:
