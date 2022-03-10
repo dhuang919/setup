@@ -21,20 +21,16 @@ function screens.placeWindow(window, screen, ratios)
     return
   end
   window:moveToScreen(SCREENS[screen])
-  if ratios.full_screen then
-    window:setFullScreen(true)
-  else
-    screen_height = screenObj:frame().h
-    screen_width = screenObj:frame().w
+  screen_height = screenObj:frame().h
+  screen_width = screenObj:frame().w
 
-    top = screen_height * ratios.top
-    left = screen_width * ratios.left
-    height = screen_height * ratios.height
-    width = screen_width * ratios.width
+  top = screen_height * ratios.top
+  left = screen_width * ratios.left
+  height = screen_height * ratios.height
+  width = screen_width * ratios.width
 
-    window:setTopLeft(screenObj:localToAbsolute(hs.geometry.point(left, top)))
-    window:setSize(hs.geometry.size(width, height))
-  end
+  window:setTopLeft(screenObj:localToAbsolute(hs.geometry.point(left, top)))
+  window:setSize(hs.geometry.size(width, height))
 end
 
 return screens
