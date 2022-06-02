@@ -34,6 +34,7 @@ homebrew_casks:
   - visual-studio-code
 
 homebrew_packages:
+  - coreutils
   - croc
   - diff-so-fancy
   - dockutil
