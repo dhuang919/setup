@@ -38,6 +38,7 @@ homebrew_packages:
   - croc
   - diff-so-fancy
   - dockutil
+  - findutils
   - fzf
   - gnupg
   - htop
@@ -45,7 +46,6 @@ homebrew_packages:
   - jq
   - nvm
   - pyenv
-  - shellcheck
   - svn  # needed for fonts as of 2/22
   - the_silver_searcher
   - tldr
