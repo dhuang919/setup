@@ -21,6 +21,7 @@ homebrew_directories:
   - var
 
 homebrew_casks:
+  - basictex
   - dropbox
   - firefox
   - font-fira-code
