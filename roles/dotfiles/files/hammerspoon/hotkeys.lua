@@ -32,10 +32,10 @@ local ratios = {
     width = 0.7,
   },
   obsidian = {
-    top = 0.16,
-    left = 0.428,
-    height = 0.55,
-    width = 0.4,
+    top = 0.21,
+    left = 0.36,
+    height = 0.78,
+    width = 0.62,
   },
 }
 
@@ -45,7 +45,7 @@ hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'W', function()
   o.moveIfOpen('Spotify', 'LAPTOP', ratios.spotify)
 
   o.moveIfOpen('Insomnia', 'HORIZONTAL', ratios.insomnia)
-  o.moveIfOpen('Obsidian', 'HORIZONTAL', ratios.obsidian)
+  o.moveIfOpen('Obsidian', 'LAPTOP', ratios.obsidian)
 
   o.moveIfOpen('iTerm2', 'VERTICAL', ratios.iterm)
   o.moveIfOpen('Google Chrome', 'VERTICAL', ratios.chrome)
