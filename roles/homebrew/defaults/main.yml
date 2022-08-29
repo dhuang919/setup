@@ -22,6 +22,7 @@ homebrew_directories:
 
 homebrew_casks:
   - basictex
+  - beardedspice
   - dropbox
   - firefox
   - font-fira-code
