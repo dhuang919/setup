@@ -54,8 +54,8 @@ dock_settings:
     value: false
   tilesize:
     desc: set tile size
-    type: int
-    value: 40
+    type: float
+    value: 40.0
   mineffect:
     desc: minimization effect
     type: string

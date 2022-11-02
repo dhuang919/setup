@@ -78,18 +78,17 @@
     name: homebrew/cask-fonts
     state: present
 
+- name: Install Homebrew packages
+  homebrew:
+    name: "{{ homebrew_packages }}"
+    state: present
+  ignore_errors: true
+  become: "{{ (homebrew_user != ansible_user_id) | bool }}"
+  become_user: "{{ homebrew_user }}"
+
 - name: Install Homebrew casks
   homebrew_cask:
     name: "{{ item }}"
     state: present
   with_items: "{{ homebrew_casks }}"
   ignore_errors: true
-
-- name: Install Homebrew packages
-  homebrew:
-    name: "{{ homebrew_packages }}"
-    state: present
-  ignore_errors: true
-
-  become: "{{ (homebrew_user != ansible_user_id) | bool }}"
-  become_user: "{{ homebrew_user }}"
