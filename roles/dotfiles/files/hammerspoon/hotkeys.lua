@@ -22,8 +22,8 @@ local ratios = {
   slack = {
     top = 0.063,
     left = 0.02,
-    height = 0.875,
-    width = 0.95,
+    height = 0.7,
+    width = 0.7,
   },
   spotify = {
     top = 0.24,
@@ -40,11 +40,9 @@ local ratios = {
 }
 
 hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'W', function()
-  o.moveIfOpen('Mail', 'LAPTOP', ratios.mail)
   o.moveIfOpen('Slack', 'LAPTOP', ratios.slack)
   o.moveIfOpen('Spotify', 'LAPTOP', ratios.spotify)
 
-  o.moveIfOpen('Insomnia', 'HORIZONTAL', ratios.insomnia)
   o.moveIfOpen('Obsidian', 'LAPTOP', ratios.obsidian)
 
   o.moveIfOpen('iTerm2', 'VERTICAL', ratios.iterm)
