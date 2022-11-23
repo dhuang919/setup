@@ -1,13 +1,23 @@
 SCREENS = {}
 
 for k, v in ipairs(hs.screen.allScreens()) do
-  if string.find(v:name(), 'Retina') then
+  if string.find(v:name(), 'Retina', 1, true) then
     SCREENS.LAPTOP = v
   end
-  if string.find(v:name(), 'U2518D') then
+
+  -- personal
+  if string.find(v:name(), 'U2518D', 1, true) then
     SCREENS.HORIZONTAL = v
   end
-  if string.find(v:name(), 'U2515H') then
+  if string.find(v:name(), 'U2515H', 1, true) then
+    SCREENS.VERTICAL = v
+  end
+
+  -- work
+  if string.find(v:name(), '27EA83R (2)', 1, true) then
+    SCREENS.HORIZONTAL = v
+  end
+  if string.find(v:name(), '27EA83R (1)', 1, true) then
     SCREENS.VERTICAL = v
   end
 end
