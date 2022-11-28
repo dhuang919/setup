@@ -51,4 +51,5 @@ homebrew_packages:
   - svn  # needed for fonts as of 2/22
   - the_silver_searcher
   - tldr
+  - tree
   - wget
