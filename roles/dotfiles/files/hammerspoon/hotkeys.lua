@@ -37,6 +37,12 @@ local ratios = {
     height = 0.78,
     width = 0.62,
   },
+  calendar = {
+    top = 0.1,
+    left = 0.53,
+    height = 0.5,
+    width = 0.42,
+  }
 }
 
 hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'W', function()
@@ -47,6 +53,8 @@ hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'W', function()
 
   o.moveIfOpen('iTerm2', 'VERTICAL', ratios.iterm)
   o.moveIfOpen('Google Chrome', 'VERTICAL', ratios.chrome)
+
+  o.moveIfOpen('Calendar', 'HORIZONTAL', ratios.calendar)
 end)
 
 hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'R', function()
