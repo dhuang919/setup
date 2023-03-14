@@ -33,9 +33,9 @@ local ratios = {
   },
   obsidian = {
     top = 0.21,
-    left = 0.36,
+    left = 0.29,
     height = 0.78,
-    width = 0.62,
+    width = 0.7,
   },
   calendar = {
     top = 0.1,
