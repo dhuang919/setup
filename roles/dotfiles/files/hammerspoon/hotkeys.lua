@@ -1,6 +1,18 @@
 local o = require('open')
 
 local ratios = {
+  bbvpn = {
+    top = 0.6,
+    left = 0.01,
+    height = 0.4,
+    width = 0.17,
+  },
+  calendar = {
+    top = 0.1,
+    left = 0.53,
+    height = 0.5,
+    width = 0.42,
+  },
   chrome = {
     top = 0.19,
     left = 0,
@@ -37,12 +49,6 @@ local ratios = {
     height = 0.78,
     width = 0.69,
   },
-  calendar = {
-    top = 0.1,
-    left = 0.53,
-    height = 0.5,
-    width = 0.42,
-  }
 }
 
 hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'W', function()
@@ -55,6 +61,7 @@ hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'W', function()
   o.moveIfOpen('Google Chrome', 'VERTICAL', ratios.chrome)
 
   o.moveIfOpen('Calendar', 'HORIZONTAL', ratios.calendar)
+  o.moveIfOpen('bbvpn2', 'HORIZONTAL', ratios.bbvpn)
 end)
 
 hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'R', function()
