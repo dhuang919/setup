@@ -10,9 +10,12 @@ pager: cat
 aliases:
     ci: pr checks
     rfc: '!gh repo fork $1 --clone'
-    prc: pr create
     b: browse
     rs: '!gh repo sync -s tssr/"$(basename $(pwd))" dhuang295/"$(basename $(pwd))" && git prul'
+    pc: pr create
+    plc: pr list -s closed -A @me
+    pvh: '!gh pr view $(gh plc | head -n 1 | awk "{print \$1}") -w'
+    pv: pr view
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.
