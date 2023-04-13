@@ -45,7 +45,7 @@ local ratios = {
   },
   obsidian = {
     top = 0.21,
-    left = 0.29,
+    left = 0.28,
     height = 0.78,
     width = 0.69,
   },
