@@ -2,16 +2,16 @@ local o = require('open')
 
 local ratios = {
   bbvpn = {
-    top = 0.6,
+    top = 0.57,
     left = 0.01,
     height = 0.4,
     width = 0.17,
   },
   calendar = {
-    top = 0.1,
-    left = 0.53,
-    height = 0.5,
-    width = 0.42,
+    top = 0.07,
+    left = 0.33,
+    height = 0.6,
+    width = 0.62,
   },
   chrome = {
     top = 0.19,
@@ -54,14 +54,12 @@ local ratios = {
 hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'W', function()
   o.moveIfOpen('Slack', 'LAPTOP', ratios.slack)
   o.moveIfOpen('Spotify', 'LAPTOP', ratios.spotify)
-
+  o.moveIfOpen('bbvpn2', 'LAPTOP', ratios.bbvpn)
+  o.moveIfOpen('Calendar', 'LAPTOP', ratios.calendar)
   o.moveIfOpen('Obsidian', 'LAPTOP', ratios.obsidian)
 
   o.moveIfOpen('iTerm2', 'VERTICAL', ratios.iterm)
   o.moveIfOpen('Google Chrome', 'VERTICAL', ratios.chrome)
-
-  o.moveIfOpen('Calendar', 'HORIZONTAL', ratios.calendar)
-  o.moveIfOpen('bbvpn2', 'HORIZONTAL', ratios.bbvpn)
 end)
 
 hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'R', function()
