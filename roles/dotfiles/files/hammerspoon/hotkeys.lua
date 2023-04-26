@@ -5,7 +5,7 @@ local ratios = {
     top = 0.57,
     left = 0.01,
     height = 0.4,
-    width = 0.17,
+    width = 0.25,
   },
   calendar = {
     top = 0.07,
