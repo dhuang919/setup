@@ -14,16 +14,16 @@ local ratios = {
     width = 0.62,
   },
   chrome = {
-    top = 0.19,
+    top = 0,
     left = 0,
-    height = 0.378,
-    width = 1,
+    height = 1,
+    width = 0.5,
   },
   iterm = {
-    top = 0.568,
-    left = 0,
-    height = 0.44,
-    width = 1,
+    top = 0,
+    left = 0.5,
+    height = 1,
+    width = 0.5,
   },
   mail = {
     top = 0.03,
