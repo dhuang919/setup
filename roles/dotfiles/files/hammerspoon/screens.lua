@@ -14,10 +14,10 @@ for k, v in ipairs(hs.screen.allScreens()) do
   end
 
   -- work
-  if string.find(v:name(), '27EA83R (2)', 1, true) then
+  if string.find(v:name(), 'BFP100-27 (1)', 1, true) then
     SCREENS.HORIZONTAL = v
   end
-  if string.find(v:name(), '27EA83R (1)', 1, true) then
+  if string.find(v:name(), 'BFP100-27 (2)', 1, true) then
     SCREENS.VERTICAL = v
   end
 end
