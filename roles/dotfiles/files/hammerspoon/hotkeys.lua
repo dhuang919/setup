@@ -15,15 +15,15 @@ local ratios = {
   },
   chrome = {
     top = 0,
-    left = 0,
+    left = 0.1,
     height = 1,
-    width = 0.5,
+    width = 0.8,
   },
   iterm = {
     top = 0,
-    left = 0.5,
-    height = 1,
-    width = 0.5,
+    left = 0,
+    height = 0.8,
+    width = 0.6,
   },
   mail = {
     top = 0.03,
@@ -57,9 +57,8 @@ hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'W', function()
   o.moveIfOpen('bbvpn2', 'LAPTOP', ratios.bbvpn)
   o.moveIfOpen('Calendar', 'LAPTOP', ratios.calendar)
   o.moveIfOpen('Obsidian', 'LAPTOP', ratios.obsidian)
-
-  o.moveIfOpen('iTerm2', 'VERTICAL', ratios.iterm)
-  o.moveIfOpen('Google Chrome', 'VERTICAL', ratios.chrome)
+  o.moveIfOpen('iTerm2', 'LAPTOP', ratios.iterm)
+  o.moveIfOpen('Google Chrome', 'LAPTOP', ratios.chrome)
 end)
 
 hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'R', function()
