@@ -1,4 +1,6 @@
 local o = require('open')
+local s = require('screens')
+local home = s.SCREENS.HORIZONTAL:name() == 'DELL U2518D'
 
 local ratios = {
   bbvpn = {
@@ -14,16 +16,16 @@ local ratios = {
     width = 0.62,
   },
   chrome = {
-    top = 0,
-    left = 0.1,
-    height = 1,
-    width = 0.8,
+    top = home and 0.19 or 0,
+    left = home and 0 or 0.1,
+    height = home and 0.378 or 1,
+    width = home and 1 or 0.8,
   },
   iterm = {
-    top = 0,
-    left = 0,
-    height = 0.8,
-    width = 0.6,
+    top = home and 0.568 or 0,
+    left = home and 0 or 0,
+    height = home and 0.44 or 0.8,
+    width = home and 1 or 0.6,
   },
   mail = {
     top = 0.03,
@@ -57,8 +59,9 @@ hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'W', function()
   o.moveIfOpen('bbvpn2', 'LAPTOP', ratios.bbvpn)
   o.moveIfOpen('Calendar', 'LAPTOP', ratios.calendar)
   o.moveIfOpen('Obsidian', 'LAPTOP', ratios.obsidian)
-  o.moveIfOpen('iTerm2', 'LAPTOP', ratios.iterm)
-  o.moveIfOpen('Google Chrome', 'LAPTOP', ratios.chrome)
+
+  o.moveIfOpen('iTerm2', home and 'VERTICAL' or 'LAPTOP', ratios.iterm)
+  o.moveIfOpen('Google Chrome', home and 'VERTICAL' or 'LAPTOP', ratios.chrome)
 end)
 
 hs.hotkey.bind({'alt', 'cmd', 'ctrl'}, 'R', function()
