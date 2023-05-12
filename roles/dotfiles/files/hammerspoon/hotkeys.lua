@@ -1,6 +1,9 @@
 local o = require('open')
 local s = require('screens')
-local home = s.SCREENS.HORIZONTAL:name() == 'DELL U2518D'
+local home = false
+if s.SCREENS['HORIZONTAL'] ~= nil then
+  home = s.SCREENS.HORIZONTAL:name() == 'DELL U2518D'
+end
 
 local ratios = {
   bbvpn = {
