@@ -17,6 +17,7 @@ aliases:
     als: alias list
     pls: pr list -s all -A @me
     pvh: '!gh pr view $(gh pls | head -n 1 | awk "{print \$1}") -w'
+    rsd: '!cur=$(pwd); gh repo set-default "$(basename "$(dirname "$cur")")"/"$(basename "$cur")"'
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.
