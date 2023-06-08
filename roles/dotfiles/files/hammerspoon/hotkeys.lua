@@ -39,8 +39,8 @@ local ratios = {
   slack = {
     top = 0.063,
     left = 0.02,
-    height = 0.7,
-    width = 0.7,
+    height = 0.85,
+    width = 0.85,
   },
   spotify = {
     top = 0.24,
