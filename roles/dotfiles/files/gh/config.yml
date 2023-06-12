@@ -11,13 +11,13 @@ aliases:
     ci: pr checks
     rfc: '!gh repo fork $1 --clone'
     b: browse
-    rs: '!gh repo sync -s tssr/"$(basename $(pwd))" dhuang295/"$(basename $(pwd))" && git prul'
     pc: pr create
     pv: pr view
     als: alias list
     pls: pr list -s all -A @me
     pvh: '!gh pr view $(gh pls | head -n 1 | awk "{print \$1}") -w'
     rsd: '!cur=$(pwd); gh repo set-default "$(basename "$(dirname "$cur")")"/"$(basename "$cur")"'
+    rs: '!gh repo sync -s tssr/"$(basename $(pwd))" && git prul'
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.
