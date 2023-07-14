@@ -36,7 +36,22 @@
     mode: go-w
     recurse: yes
     state: directory
-  become: true
+
+- name: Ensure tmux directory exists
+  file:
+    path: ~/.config/tmux
+    state: directory
+
+- name: Clone oh my tmux
+  git:
+    repo: https://github.com/gpakosz/.tmux.git
+    dest: ~/.config/tmux
+
+- name: Symlink tmux.conf
+  file:
+    src: ~/.config/tmux/.tmux/.tmux.conf
+    dest: ~/.config/tmux/tmux.conf
+    state: link
 
 - name: Clone powerlevel10k
   git:
