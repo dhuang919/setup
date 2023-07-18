@@ -57,19 +57,3 @@
   git:
     repo: https://github.com/romkatv/powerlevel10k.git
     dest: ~/.oh-my-zsh/custom/themes/powerlevel10k
-
-- name: Ensure Hammerspoon directory exists
-  file:
-    path: ~/.hammerspoon
-    state: directory
-
-- name: Symlink Hammerspoon files
-  file:
-    src: "{{ role_path }}/files/hammerspoon/{{ item }}.lua"
-    dest: "~/.hammerspoon/{{ item }}.lua"
-    state: link
-  loop:
-    - init
-    - hotkeys
-    - open
-    - screens
