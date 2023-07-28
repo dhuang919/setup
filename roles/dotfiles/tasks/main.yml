@@ -1,22 +1,4 @@
 ---
-
-- name: Create ~/.zsh dir
-  file:
-    path: ~/.zsh/completion
-    state: directory
-    recurse: yes
-
-- name: Setup git-completion
-  copy:
-    src: "{{ item.value.src }}"
-    dest: "{{ item.key }}"
-    force: no
-  with_dict:
-    ~/.zsh/completion/git-completion.bash:
-      src: git-completion.bash
-    ~/.zsh/completion/_git:
-      src: git-completion.zsh
-
 - name: Copy Operator Mono fonts
   copy:
     src: "{{ item }}"
@@ -46,12 +28,6 @@
   git:
     repo: https://github.com/gpakosz/.tmux.git
     dest: ~/.config/tmux
-
-- name: Symlink tmux.conf
-  file:
-    src: ~/.config/tmux/.tmux/.tmux.conf
-    dest: ~/.config/tmux/tmux.conf
-    state: link
 
 - name: Clone powerlevel10k
   git:
